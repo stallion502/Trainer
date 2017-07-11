@@ -9,27 +9,38 @@
 import UIKit
 import SwiftyJSON
 import YouTubePlayer
+import FirebaseStorageUI
 
 class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var proData: [JSON]?
-    @IBOutlet weak var videoView: YouTubePlayerView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var exerciseView: UIView!
+    var youTubePlayer: YouTubePlayerView?
+    static var storage: Storage = Storage.storage(url: "gs://personalcoach-edc0d.appspot.com")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        view.backgroundColor = UIColor.white
+    }
+    
+    func configure(){
+        youTubePlayer = YouTubePlayerView(frame: CGRect(x:0, y:0, width: view.frame.size.width - 32, height: CGFloat(exerciseView.frame.size.height / 2 - 50)))
+        exerciseView.addSubview(youTubePlayer!)
+        youTubePlayer?.loadVideoURL(URL(string:"https://www.youtube.com/watch?v=klssdO_jB88?start=1275&end=1302")!)
+        exerciseView?.alpha = 0
     }
 
     @IBAction func playVideoView(_ sender: UITapGestureRecognizer) {
-        videoView.loadVideoURL(URL(string:"https://www.youtube.com/watch?v=klssdO_jB88&t=1289s&start=1275&end=1302")!)
-        videoView.play()
+        youTubePlayer?.play()
+        youTubePlayer?.seekTo(1275, seekAhead: true)
     }
     
     
@@ -43,8 +54,17 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "header")
+        cell?.tag = section
+        cell?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(headerToggled)))
         cell?.textLabel?.text = proData?[section]["title"].stringValue
         return cell
+    }
+    
+    func headerToggled(_ sender: UITapGestureRecognizer){
+        let dynamicTrainVC = self.storyboard?.instantiateViewController(withIdentifier: "DynamicTrainVC") as! DynamicTrainVC
+        dynamicTrainVC.data = proData?[(sender.view?.tag)!]["exercises"].arrayValue
+        navigationController?.pushViewController(dynamicTrainVC, animated: true)
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,6 +80,31 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let json = proData?[indexPath.section]["exercises"].arrayValue
         cell.textLabel?.text = json?[indexPath.row].stringValue
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.4) { 
+            self.exerciseView.alpha = 1
+        }
+        let resultString = getURLString(withIndexPath: indexPath)
+        let reference = ProTrainingVC.storage.reference(withPath: resultString! + ".jpg")
+        imageView.sd_setImage(with: reference, placeholderImage: nil)
+
+    }
+    
+    func getURLString(withIndexPath indexPath: IndexPath) -> String? {
+        let json = proData?[indexPath.section]["exercises"].arrayValue
+        let stringToSearch = json?[indexPath.row].stringValue
+        var resultString = ""
+        for character in (stringToSearch?.characters)! {
+            if character != Character("–") {
+                resultString += String(character)
+                continue
+            }
+            resultString.remove(at: resultString.index(before: resultString.endIndex))
+            return resultString
+        }
+        return nil
     }
     
     override func didReceiveMemoryWarning() {

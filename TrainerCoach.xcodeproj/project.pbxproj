@@ -11,6 +11,9 @@
 		C14B7AD2FF696D1756AFA2D6 /* Pods_TrainerCoach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B887806CD016B9391D8C662 /* Pods_TrainerCoach.framework */; };
 		CE102D371F11008E0009E3A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */; };
 		CE102D3B1F1101840009E3A4 /* ExercisesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE102D3A1F1101840009E3A4 /* ExercisesData.swift */; };
+		CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3693CE1F139EBB00E76B2A /* iCarousel.m */; };
+		CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */; };
+		CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */; };
 		CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7495141F10F3A400FE3C48 /* AppDelegate.swift */; };
 		CE7495171F10F3A400FE3C48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7495161F10F3A400FE3C48 /* ViewController.swift */; };
 		CE74951A1F10F3A400FE3C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7495181F10F3A400FE3C48 /* Main.storyboard */; };
@@ -55,6 +58,11 @@
 		CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE102D381F1100FA0009E3A4 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		CE102D3A1F1101840009E3A4 /* ExercisesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesData.swift; sourceTree = "<group>"; };
+		CE3693CC1F139EB900E76B2A /* TrainerCoach-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrainerCoach-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE3693CD1F139EBB00E76B2A /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		CE3693CE1F139EBB00E76B2A /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTrainVC.swift; sourceTree = "<group>"; };
+		CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTrainCell.swift; sourceTree = "<group>"; };
 		CE7495111F10F3A400FE3C48 /* TrainerCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainerCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7495141F10F3A400FE3C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7495161F10F3A400FE3C48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +152,8 @@
 				CE7495161F10F3A400FE3C48 /* ViewController.swift */,
 				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
 				CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */,
+				CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */,
+				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
 				CE7495181F10F3A400FE3C48 /* Main.storyboard */,
 				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
@@ -151,6 +161,9 @@
 				CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */,
 				CE102D3A1F1101840009E3A4 /* ExercisesData.swift */,
 				CE8B35F71F11082A00EA6C41 /* TrainData.swift */,
+				CE3693CD1F139EBB00E76B2A /* iCarousel.h */,
+				CE3693CE1F139EBB00E76B2A /* iCarousel.m */,
+				CE3693CC1F139EB900E76B2A /* TrainerCoach-Bridging-Header.h */,
 			);
 			path = TrainerCoach;
 			sourceTree = "<group>";
@@ -261,6 +274,7 @@
 				TargetAttributes = {
 					CE7495101F10F3A400FE3C48 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					CE7495241F10F3A400FE3C48 = {
@@ -469,9 +483,12 @@
 				CE7495171F10F3A400FE3C48 /* ViewController.swift in Sources */,
 				CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */,
 				CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */,
+				CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */,
 				CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */,
 				CE8B35F81F11082A00EA6C41 /* TrainData.swift in Sources */,
+				CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */,
 				CE102D3B1F1101840009E3A4 /* ExercisesData.swift in Sources */,
+				CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,11 +643,14 @@
 			baseConfigurationReference = 4BA06BC8BFAC28520AA4464D /* Pods-TrainerCoach.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TrainerCoach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Introvert.TrainerCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrainerCoach/TrainerCoach-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -640,11 +660,13 @@
 			baseConfigurationReference = 63F0A9567EA4A940C2B9B654 /* Pods-TrainerCoach.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TrainerCoach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Introvert.TrainerCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrainerCoach/TrainerCoach-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

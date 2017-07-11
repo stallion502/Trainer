@@ -188,7 +188,7 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     open func seekTo(_ seconds: Float, seekAhead: Bool) {
         evaluatePlayerCommand("seekTo(\(seconds), \(seekAhead))")
     }
-    
+        
     open func getDuration() -> String? {
         return evaluatePlayerCommand("getDuration()")
     }

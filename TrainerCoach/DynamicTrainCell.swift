@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class DynamicTrainCell: UICollectionViewCell {
+    
+    @IBOutlet weak var youtubeView: UIView!
+    @IBOutlet weak var stepLabel: UILabel!
+}

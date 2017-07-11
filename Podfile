@@ -12,6 +12,7 @@ target 'TrainerCoach' do
   pod 'YouTubePlayer'
   pod 'Canvas', '~> 0.1'
   pod 'Firebase/Database'
+  pod 'CHIPageControl', '~> 0.1.3'
 
   target 'TrainerCoachTests' do
     inherit! :search_paths

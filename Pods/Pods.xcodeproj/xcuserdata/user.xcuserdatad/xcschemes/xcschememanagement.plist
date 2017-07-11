@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CHIPageControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Canvas.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>464C780543236D7BD40D185685454B13</key>
+		<key>4271D357A5BE19E357ADCDA94ACD9822</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D0A4D6DFDFA228342C0AA8C35966D86</key>
+		<key>A1A31514E962DEFA2A29ADD0A52765C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A285002C107FE6232B2B53BBC01266F1</key>
+		<key>A2922784F0DC8D509511912F0F69804C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3B93A64221AF129207A86BA0F0C1A6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,7 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3D84DF9C08C779E378AF8CC43C7ED49</key>
+		<key>D3F170B4A2CE7482B2FEB2DF047EBCB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
