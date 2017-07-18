@@ -25,6 +25,18 @@
 		CE8B35F91F110F8900EA6C41 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE102D381F1100FA0009E3A4 /* iAd.framework */; };
 		CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */; };
 		CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */; };
+		CEF798DF1F1E94FB00590E15 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798D81F1E94FB00590E15 /* BEMAnimationManager.m */; };
+		CEF798E01F1E94FB00590E15 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DA1F1E94FB00590E15 /* BEMCheckBox.m */; };
+		CEF798E11F1E94FB00590E15 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DC1F1E94FB00590E15 /* BEMCheckBoxGroup.m */; };
+		CEF798E21F1E94FB00590E15 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DE1F1E94FB00590E15 /* BEMPathManager.m */; };
+		CEF798E31F1E95DE00590E15 /* BEMAnimationManager.h in Sources */ = {isa = PBXBuildFile; fileRef = CEF798D71F1E94FB00590E15 /* BEMAnimationManager.h */; };
+		CEF798E41F1E95DE00590E15 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798D81F1E94FB00590E15 /* BEMAnimationManager.m */; };
+		CEF798E51F1E95DE00590E15 /* BEMCheckBox.h in Sources */ = {isa = PBXBuildFile; fileRef = CEF798D91F1E94FB00590E15 /* BEMCheckBox.h */; };
+		CEF798E61F1E95DE00590E15 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DA1F1E94FB00590E15 /* BEMCheckBox.m */; };
+		CEF798E71F1E95DE00590E15 /* BEMCheckBoxGroup.h in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DB1F1E94FB00590E15 /* BEMCheckBoxGroup.h */; };
+		CEF798E81F1E95DE00590E15 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DC1F1E94FB00590E15 /* BEMCheckBoxGroup.m */; };
+		CEF798E91F1E95DE00590E15 /* BEMPathManager.h in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DD1F1E94FB00590E15 /* BEMPathManager.h */; };
+		CEF798EA1F1E95DE00590E15 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF798DE1F1E94FB00590E15 /* BEMPathManager.m */; };
 		D373B98A89F726028400E3A8 /* Pods_TrainerCoachUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E75FE4D4F29F0105804CBBA /* Pods_TrainerCoachUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +91,15 @@
 		CE8B35F71F11082A00EA6C41 /* TrainData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainData.swift; sourceTree = "<group>"; };
 		CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandbleHeaderView.swift; sourceTree = "<group>"; };
 		CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProTrainingVC.swift; sourceTree = "<group>"; };
+		CEF798D61F1E94FA00590E15 /* TrainerCoachUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrainerCoachUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEF798D71F1E94FB00590E15 /* BEMAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimationManager.h; sourceTree = "<group>"; };
+		CEF798D81F1E94FB00590E15 /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
+		CEF798D91F1E94FB00590E15 /* BEMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
+		CEF798DA1F1E94FB00590E15 /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
+		CEF798DB1F1E94FB00590E15 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
+		CEF798DC1F1E94FB00590E15 /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBoxGroup.m; sourceTree = "<group>"; };
+		CEF798DD1F1E94FB00590E15 /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
+		CEF798DE1F1E94FB00590E15 /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				CE7495131F10F3A400FE3C48 /* TrainerCoach */,
-				CE7495281F10F3A400FE3C48 /* TrainerCoachTests */,
 				CE7495331F10F3A400FE3C48 /* TrainerCoachUITests */,
+				CE7495281F10F3A400FE3C48 /* TrainerCoachTests */,
 				CE7495121F10F3A400FE3C48 /* Products */,
 				ABBC44FF31806913696D0AF1 /* Pods */,
 				CF401C7B629A0AAF0B4765BC /* Frameworks */,
@@ -180,11 +201,20 @@
 		CE7495331F10F3A400FE3C48 /* TrainerCoachUITests */ = {
 			isa = PBXGroup;
 			children = (
+				CEF798D71F1E94FB00590E15 /* BEMAnimationManager.h */,
+				CEF798D81F1E94FB00590E15 /* BEMAnimationManager.m */,
+				CEF798D91F1E94FB00590E15 /* BEMCheckBox.h */,
+				CEF798DA1F1E94FB00590E15 /* BEMCheckBox.m */,
+				CEF798DB1F1E94FB00590E15 /* BEMCheckBoxGroup.h */,
+				CEF798DC1F1E94FB00590E15 /* BEMCheckBoxGroup.m */,
+				CEF798DD1F1E94FB00590E15 /* BEMPathManager.h */,
+				CEF798DE1F1E94FB00590E15 /* BEMPathManager.m */,
 				CE7495341F10F3A400FE3C48 /* TrainerCoachUITests.swift */,
 				CE7495361F10F3A400FE3C48 /* Info.plist */,
+				CEF798D61F1E94FA00590E15 /* TrainerCoachUITests-Bridging-Header.h */,
 			);
 			path = TrainerCoachUITests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		CF401C7B629A0AAF0B4765BC /* Frameworks */ = {
 			isa = PBXGroup;
@@ -284,6 +314,7 @@
 					};
 					CE74952F1F10F3A400FE3C48 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CE7495101F10F3A400FE3C48;
 					};
@@ -480,6 +511,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF798E31F1E95DE00590E15 /* BEMAnimationManager.h in Sources */,
+				CEF798E41F1E95DE00590E15 /* BEMAnimationManager.m in Sources */,
+				CEF798E51F1E95DE00590E15 /* BEMCheckBox.h in Sources */,
+				CEF798E61F1E95DE00590E15 /* BEMCheckBox.m in Sources */,
+				CEF798E71F1E95DE00590E15 /* BEMCheckBoxGroup.h in Sources */,
+				CEF798E81F1E95DE00590E15 /* BEMCheckBoxGroup.m in Sources */,
+				CEF798E91F1E95DE00590E15 /* BEMPathManager.h in Sources */,
+				CEF798EA1F1E95DE00590E15 /* BEMPathManager.m in Sources */,
 				CE7495171F10F3A400FE3C48 /* ViewController.swift in Sources */,
 				CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */,
 				CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */,
@@ -504,7 +543,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF798E21F1E94FB00590E15 /* BEMPathManager.m in Sources */,
+				CEF798E01F1E94FB00590E15 /* BEMCheckBox.m in Sources */,
+				CEF798E11F1E94FB00590E15 /* BEMCheckBoxGroup.m in Sources */,
 				CE7495351F10F3A400FE3C48 /* TrainerCoachUITests.swift in Sources */,
+				CEF798DF1F1E94FB00590E15 /* BEMAnimationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,10 +749,13 @@
 			baseConfigurationReference = BF4F918AAA02D61B787C2A12 /* Pods-TrainerCoachUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TrainerCoachUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Introvert.TrainerCoachUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrainerCoachUITests/TrainerCoachUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TrainerCoach;
 			};
@@ -720,10 +766,12 @@
 			baseConfigurationReference = 07C00132DED4BFC15D77B98A /* Pods-TrainerCoachUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TrainerCoachUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Introvert.TrainerCoachUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrainerCoachUITests/TrainerCoachUITests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TrainerCoach;
 			};

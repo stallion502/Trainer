@@ -130,7 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         tableVIew.beginUpdates()
-        for var i in 0..<numberOfrows {
+        for i in 0..<numberOfrows {
             tableVIew.rectForRow
             tableVIew.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
             tableVIew.endUpdates()

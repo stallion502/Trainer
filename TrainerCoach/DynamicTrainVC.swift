@@ -17,6 +17,8 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: CHIPageControlJalapeno!
+    @IBOutlet var checkBoxView: UIView!
+    @IBOutlet weak var checkBox: BEMCheckBox!
     
     var isRest: Bool? = true
     var startTime: TimeInterval?
@@ -25,15 +27,26 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     var counterInt: Int = 1
     var data:[JSON]?
     var dictionaryClass: NSMutableDictionary?
+    var contetnInt: Int = 0
+    var nextCell: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startTime = NSDate.timeIntervalSinceReferenceDate
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(advanceTimer), userInfo: nil, repeats: true)
+        
         dictionaryClass = self.parseData()
+        
+        checkBoxView.alpha = 0.0
+        checkBox.onAnimationType = .stroke
+        configureCheckBox()
+        
+        let array = dictionaryClass?.object(forKey: "counts") as! [Int]
+        pageControl.numberOfPages = array[0]
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-        pageControl.numberOfPages = dictionaryClass?.object(forKey:"commonCounts") as! Int
+        
         self.stepLabel.font = UIFont(name: "Avenir-Light", size: 26)
         self.stepLabel.text = "Hello there from Russia"
         UIView.animate(withDuration: 0.4) {
@@ -42,6 +55,11 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         stepLabel.layer.add(bloat(), forKey: "scaleLabel")
         animateLabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,9 +88,13 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         let youtubePlayer = YouTubePlayerView(frame: CGRect(x: 0, y: 50, width: cell.frame.size.width, height: cell.frame.size.height - 50))
         cell.addSubview(youtubePlayer)
         //hardcoded
+        let arrayCounts = dictionaryClass?.object(forKey: "counts") as! [Int]
         youtubePlayer.loadVideoURL(URL(string:"https://www.youtube.com/watch?v=klssdO_jB88?start=1275&end=1302")!)//hardcoded
+        
+        
+        let exercise = data?[indexPath.row].stringValue
         let array = dictionaryClass?.object(forKey: "counts") as! [Int]
-        cell.stepLabel.text = "Шаг " + String(pageControl.currentPage + 1) + ".Кол-во повторений:\(pageControl.currentPage)" + "\nПодход - \(pageControl.currentPage + 1)"
+        cell.stepLabel.text = "Шаг " + String(indexPath.row + 1) + ".Кол-во повторений: \(array[indexPath.row])" + "\nПодход - \(1): " + getURLString(fromString: exercise!)!
         return cell
     }
     
@@ -107,22 +129,46 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     @IBAction func moveOn(_ sender: UIButton) {
-        updateLabel()
+        
+        
+        let array = dictionaryClass?.object(forKey: "counts") as! [Int]
         if isRest == true {
-            //if condition indexpathVisible + 1 count
-          //  collectionView.in
-            let point = CGPoint(x: CGFloat(counterInt) * view.frame.size.width + CGFloat(10 * counterInt), y: 0)
-            collectionView.setContentOffset(point, animated: true)
-            pageControl.set(progress: counterInt, animated: true)
+            let indexPathes = collectionView.indexPathsForVisibleItems
+            //make counterInt null
+            if counterInt ==  array[indexPathes[0].row] {
+                let point = CGPoint(x: CGFloat(nextCell) * view.frame.size.width + CGFloat(10 * nextCell), y: 0)
+                collectionView.setContentOffset(point, animated: true)
+                nextCell+=1
+                contetnInt = 0
+                counterInt = 1
+                moveOnButton.setTitle("Продолжить", for: .normal)
+                moveOnButton.layer.add(bloat(), forKey: "scaleButton")
+                pageControl.numberOfPages = array[indexPathes[0].row + 1]
+                pageControl.set(progress: contetnInt, animated: true)
+                
+                updateLabel()
+                
+                isRest = false
+                showCheckBox()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+                    self.dismissCheckBox()
+                })
+                return
+            }
             moveOnButton.setTitle("Продолжить", for: .normal)
             moveOnButton.layer.add(bloat(), forKey: "scaleButton")
-         //   moveOnButton.titleLabel
             isRest = false
             counterInt+=1
+            contetnInt+=1
+            pageControl.set(progress: contetnInt, animated: true)
+            
+            updateLabel()
             return
         }
         moveOnButton.setTitle("Закончить", for: .normal)
         isRest = true
+        
     }
     
     func blinkAnimation(withRepeating repeatDuraion:CGFloat) -> CABasicAnimation{
@@ -138,24 +184,67 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         var dictionary = NSMutableDictionary()
         var arrayOfCounts = Array<Int>()
-        var commonCount = 0
-        for var i in 0..<data!.count {
+        
+        for i in 0..<data!.count {
 
            let string = data![i].stringValue
             let intString = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
             let firstString = intString.substring(from: intString.index(after: intString.startIndex))
-            commonCount += Int(intString.substring(from: intString.index(before: intString.endIndex)))!
                 arrayOfCounts.append(Int(firstString)!)
         }
         dictionary["counts"] = arrayOfCounts
-        dictionary["commonCounts"] = commonCount
         return dictionary
     }
     
     func updateLabel() {
         let cells = collectionView.visibleCells
+        
+        if cells.count > 0 {
+        
         let cell = cells[0] as! DynamicTrainCell
-        cell.stepLabel.text = "Шаг " + String(pageControl.currentPage + 1) + ".Кол-во повторений:\(pageControl.currentPage)" + "\nПодход - \(pageControl.currentPage + 1)"
+        let array = dictionaryClass?.object(forKey: "counts") as! [Int]
+        let exercise = data?[(collectionView.indexPath(for: cell)?.row)!].stringValue
+        let count = array[(collectionView.indexPath(for: cell)?.row)!]
+        let completeString = getURLString(fromString: exercise!)!
+        var string = String(count)
+        
+        if count == 1 {
+            string = "Максимум"
+        }
+        cell.stepLabel.text = "Шаг " + String((collectionView.indexPath(for: cell)?.row)! + 1) + ".Кол-во повторений: " + string + "\nПодход - \(contetnInt + 1): " + completeString
+        }
     }
-
+    
+    func getURLString(fromString string:String) -> String? {
+        var resultString = ""
+        for character in string.characters {
+            if character != Character("–") {
+                resultString += String(character)
+                continue
+            }
+            resultString.remove(at: resultString.index(before: resultString.endIndex))
+            return resultString
+        }
+        return nil
+    }
+    
+    func showCheckBox() {
+        UIView.animate(withDuration: 0.2) {
+        self.checkBoxView.alpha = 1.0
+        }
+        checkBox.setOn(true, animated: true)
+        //checkBox.reload()
+    }
+    
+    func dismissCheckBox() {
+        UIView.animate(withDuration: 0.2) {
+        self.checkBoxView.alpha = 0.0
+        }
+    }
+    
+    func configureCheckBox() {
+        checkBox.onCheckColor = .red
+        checkBox.onFillColor = .white
+        checkBox.onTintColor = .red
+    }
 }

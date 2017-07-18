@@ -10,10 +10,8 @@ target 'TrainerCoach' do
   pod 'FirebaseUI/Storage'
   pod 'SwiftyJSON', '~> 3.1'
   pod 'YouTubePlayer'
-  pod 'Canvas', '~> 0.1'
   pod 'Firebase/Database'
   pod 'CHIPageControl', '~> 0.1.3'
-
   target 'TrainerCoachTests' do
     inherit! :search_paths
     # Pods for testing

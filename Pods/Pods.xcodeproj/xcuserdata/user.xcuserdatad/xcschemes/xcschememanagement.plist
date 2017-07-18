@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Canvas.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,22 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>031A73C875664CD0C8CBFB9585988FC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0AAE1F0220784FE68E462BE044198443</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4271D357A5BE19E357ADCDA94ACD9822</key>
+		<key>1B2CB970CD02AFEB4D6F7C45F9B8BC72</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1A31514E962DEFA2A29ADD0A52765C0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A2922784F0DC8D509511912F0F69804C</key>
+		<key>84CA8CF22236D052055C008AF1B8CAD6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D3F170B4A2CE7482B2FEB2DF047EBCB0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F6497E6E7D485D7D0D7E0CD8E84BFCD4</key>
+		<key>D36E2D1105448C3C5A413FC828933A4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
