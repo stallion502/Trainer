@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KDCircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TrainerCoach.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +67,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0CF41E9C984CCBD868C6E3940FD7D554</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2293AAE3448C3C35485933C51A19B95A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2761ADB6A1B006438BC63521065D126E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2DCD722982163F66F7D9B483008082C0</key>
+		<key>322428ECC8C5EC71F14C92233787C7AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4767DC4B4C09950E332CB9D331746E2B</key>
+		<key>503B40A2D0CFEE8075B1A74368384AD7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED207A56E764B2B42D54326B80952868</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED460E83BF87DE870AFD2349580CF13F</key>
+		<key>F9FD8EDC2784C5C4F2A6B779E54C083A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

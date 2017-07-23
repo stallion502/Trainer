@@ -10,8 +10,12 @@ import UIKit
 import SwiftyJSON
 import YouTubePlayer
 import CHIPageControl
+import UserNotifications
+import AVFoundation
 
 class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
 
     @IBOutlet weak var moveOnButton: UIButton!
     @IBOutlet weak var stepLabel: UILabel!
@@ -21,6 +25,9 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var thirdLabel: UILabel!
     @IBOutlet weak var checkBox: BEMCheckBox!
+    @IBOutlet weak var alarmClock: UIImageView!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var restLabel: UILabel!
     
     var isRest: Bool? = true
     var startTime: TimeInterval?
@@ -31,29 +38,42 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     var dictionaryClass: NSMutableDictionary?
     var contetnInt: Int = 0
     var nextCell: Int = 1
+    var restTimer: Timer?
+    var valueForRest:Double = 0
+    var timeRemaining:Float = 25
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backgroundTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            UIApplication.shared.endBackgroundTask(self.backgroundTask)
+        })
         startTime = NSDate.timeIntervalSinceReferenceDate
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(advanceTimer), userInfo: nil, repeats: true)
         
         dictionaryClass = self.parseData()
 
-        let array = dictionaryClass?.object(forKey: "counts") as! [Int]
+        let array = dictionaryClass?.object(forKey: "repeats") as! [Int]
         pageControl.numberOfPages = array[0]
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        moveOnButton.layer.cornerRadius = 4
+        moveOnButton.layer.masksToBounds = true
+        
         checkBox.alpha = 0
+        self.alarmClock.alpha = 0
         configureCheckBox()
         checkBox.onAnimationType = .stroke
+        progressView.alpha = 0
+        restLabel.alpha = 0
         
         UIView.animate(withDuration: 0.4) {
-            self.stepLabel.transform = CGAffineTransform(translationX: self.view.center.x - 160 , y: self.view.center.y - 140)
+            self.stepLabel.transform = CGAffineTransform(translationX: 0 , y: 250)
             self.stepLabel.layoutIfNeeded()
         }
-        stepLabel.layer.add(bloat(), forKey: "scaleLabel")
+        stepLabel.layer.add(bloatWithCount(count: 3), forKey: "scaleLabel")
         animateLabel()
     }
     
@@ -71,11 +91,11 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         return 1
     }
     
-    func bloat() -> CABasicAnimation {
+    func bloatWithCount(count:Int) -> CABasicAnimation {
         let animation = CABasicAnimation(keyPath: "transform.scale")
         animation.toValue = 1.2
         animation.duration = 0.6
-        animation.repeatCount = 2.0
+        animation.repeatCount = Float(count)
         animation.autoreverses = true
         return animation
     }
@@ -93,13 +113,21 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         youtubePlayer.loadVideoURL(URL(string:"https://www.youtube.com/watch?v=klssdO_jB88?start=1275&end=1302")!)//hardcoded
         
         
-        let exercise = data?[indexPath.row].stringValue
-        let nextExercise = data?[indexPath.row + 1].stringValue
+        let exercise = data?[nextCell - 1].stringValue
+        var nextExercise = "Finish"
+        if nextCell < (data?.count)!{
+            nextExercise = (data?[nextCell].stringValue)!
+            nextExercise = getURLString(fromString:nextExercise)!
+        }
         
         let array = dictionaryClass?.object(forKey: "counts") as! [Int]
-        firstLabel.text = "\(1)\n" + getURLString(fromString: exercise!)!
-        secondLabel.text = "\(array[indexPath.row])\nRepeat"
-        thirdLabel.text = getURLString(fromString: nextExercise!)! + "\nNext"
+        let arrayOfRepeats = dictionaryClass?.object(forKey: "repeats") as! [Int]
+        
+        firstLabel.text = "1/\(arrayOfRepeats[nextCell - 1])\n" + getURLString(fromString: exercise!)!
+        secondLabel.text = "Repeats:\(array[nextCell - 1])"
+        thirdLabel.text = nextExercise + "\nNext"
+        
+        firstLabel.layer.add(bloatWithCount(count: 1), forKey: "scaleLabel")
 
         return cell
     }
@@ -136,39 +164,51 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBAction func moveOn(_ sender: UIButton) {
         
+        let indexPathes = collectionView.indexPathsForVisibleItems
+        let array = dictionaryClass?.object(forKey: "repeats") as! [Int]
         
-        let array = dictionaryClass?.object(forKey: "counts") as! [Int]
+
+        
         if isRest == true {
-            let indexPathes = collectionView.indexPathsForVisibleItems
             //make counterInt null
             if counterInt ==  array[indexPathes[0].row] {
+                
+                if array[nextCell - 1] == array.last {
+                    showFinishVC()
+                    return
+                }
+                
                 let point = CGPoint(x: CGFloat(nextCell) * view.frame.size.width + CGFloat(10 * nextCell), y: 0)
                 collectionView.setContentOffset(point, animated: true)
                 nextCell+=1
                 contetnInt = 0
                 counterInt = 1
                 moveOnButton.setTitle("Продолжить", for: .normal)
-                moveOnButton.titleLabel?.layer.add(bloat(), forKey: "scaleButton")
-                pageControl.numberOfPages = array[indexPathes[0].row + 1]
-                pageControl.set(progress: contetnInt, animated: true)
+                moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 2), forKey: "scaleButton")
+                
+                pageControl.numberOfPages = array[nextCell - 1]
+                pageControl.set(progress: 0, animated: true)
                 showCheckBox()
                 dismissCheckBox()
-                
                 updateLabel()
-                
                 isRest = false
                 return
             }
             moveOnButton.setTitle("Продолжить", for: .normal)
-            moveOnButton.titleLabel?.layer.add(bloat(), forKey: "scaleButton")
+            moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 2), forKey: "scaleButton")
             isRest = false
             counterInt+=1
             contetnInt+=1
             pageControl.set(progress: contetnInt, animated: true)
-            
+            addPulse()
+            firstLabel.layer.add(bloatWithCount(count: 1), forKey: "scaleLabel")
             updateLabel()
+            configureViewForRest()
             return
         }
+        
+        tapedContinue()
+        removePulse()
         moveOnButton.setTitle("Закончить", for: .normal)
         isRest = true
         
@@ -187,15 +227,19 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         var dictionary = NSMutableDictionary()
         var arrayOfCounts = Array<Int>()
+        var arrayOfRepeats = Array<Int>()
         
         for i in 0..<data!.count {
 
-           let string = data![i].stringValue
-            let intString = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
-            let firstString = intString.substring(from: intString.index(after: intString.startIndex))
-                arrayOfCounts.append(Int(firstString)!)
+            let string = data![i].stringValue
+            let intString =
+                string.components(separatedBy: CharacterSet.decimalDigits.inverted).filter({return !$0.isEmpty})
+            
+            arrayOfCounts.append(Int(intString[1])!)
+            arrayOfRepeats.append(Int(intString[0])!)
         }
         dictionary["counts"] = arrayOfCounts
+        dictionary["repeats"] = arrayOfRepeats
         return dictionary
     }
     
@@ -206,16 +250,25 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let cell = cells[0] as! DynamicTrainCell
         let array = dictionaryClass?.object(forKey: "counts") as! [Int]
-        let exercise = data?[(collectionView.indexPath(for: cell)?.row)!].stringValue
-        let nextExercise = data?[(collectionView.indexPath(for: cell)?.row)! + 1].stringValue
-        let count = array[(collectionView.indexPath(for: cell)?.row)!]
+        let arrayOfRepeats = dictionaryClass?.object(forKey: "repeats") as! [Int]
+        let exercise = data?[nextCell - 1].stringValue
+            
+        var nextExercise = "Finish"
+        let index = collectionView.indexPath(for: cell)?.row
+            
+            if (index! + 1 < (data?.count)!){
+            nextExercise = (data?[index! + 1].stringValue)!
+            nextExercise = self.getURLString(fromString:nextExercise)!
+        }
+            
+        let count = array[nextCell - 1]
         var string = String(count)
         if count == 1 {
             string = "Максимум"
         }
-            firstLabel.text = "\(counterInt)\n" + getURLString(fromString: exercise!)!
-            secondLabel.text = "\(string)\nRepeat"
-            thirdLabel.text = getURLString(fromString: nextExercise!)! + "Next"
+            firstLabel.text = "\(counterInt)/\(arrayOfRepeats[nextCell - 1])\n" + getURLString(fromString: exercise!)!
+            secondLabel.text = "Repeats:\(string)"
+            thirdLabel.text = nextExercise + "\nNext"
 
         }
     }
@@ -251,5 +304,141 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         checkBox.onCheckColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1) /* #ff2222 */
         checkBox.onFillColor = .clear
     }
+    
+    func addPulse() {
+        alarmClock.alpha = 1.0
+        self.stepLabel.transform = CGAffineTransform(translationX: 20, y: 0)
+        let pulse = Pulsing(nuberOfPulses: Float.infinity, position: self.alarmClock.center)
+        pulse.backgroundColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1).cgColor
+        self.view.layer.insertSublayer(pulse, below: self.alarmClock.layer)
+    }
+    
+    func removePulse() {
+        alarmClock.alpha = 0.0
+        self.stepLabel.transform = .identity
+        
+        for layer in view.layer.sublayers!{
+            if ((layer as? Pulsing) != nil) {
+                UIView.animate(withDuration: 0.4, animations: { 
+                    layer.removeFromSuperlayer()
+                })
+                return
+            }
+        }
+
+    }
+    
+    func configureViewForRest() {
+        self.restTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(restCountDown), userInfo: nil, repeats: true)
+        UIView.animate(withDuration: 0.5) {
+            self.alarmClock.alpha = 1
+            self.restLabel.alpha = 1
+            self.stepLabel.textColor = UIColor.lightGray
+            self.moveOnButton.backgroundColor = UIColor.lightGray
+            self.progressView.alpha = 1
+            self.progressView.transform = CGAffineTransform(scaleX: 1, y: 4)
+            
+        }
+    }
+    
+    
+    func notificationWithString(string:String) {
+        
+        if #available(iOS 10.0, *) {
+            
+            let content = UNMutableNotificationContent()
+        
+            content.title = "Пора продолжать."
+            content.body = "Следующее упражнение - \(string)"
+            content.sound = UNNotificationSound.default()
+        
+        // Deliver the notification in five seconds.
+            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 3, repeats: false)
+            let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
+            // Schedule the notification.
+            let center = UNUserNotificationCenter.current()
+            center.add(request) { (error) in
+                print(error)
+            }
+            let systemSoundID: SystemSoundID = 1016
+            
+            // to play sound
+            AudioServicesPlaySystemSound (systemSoundID)
+        }
+            else {
+                      let notification = UILocalNotification()
+                 notification.alertBody = "Следующее упражнение - \(string)"
+                 notification.alertAction = "back to app"
+                 notification.fireDate = NSDate.init(timeIntervalSinceNow: 0) as Date
+                 notification.soundName = UILocalNotificationDefaultSoundName
+            
+                 UIApplication.shared.scheduleLocalNotification(notification)
+            }
+    }
+    
+    func restCountDown() {
+        
+        timeRemaining-=0.01
+        
+        let minutesLeft = Int(timeRemaining) / 60 % 60
+        let secondsLeft = Int(timeRemaining) % 60
+        restLabel.text = String.init(format: "%0.2d:%0.2d",minutesLeft,secondsLeft)
+        
+        valueForRest += 1 / 25 / 10 / 10 // hardcoded
+        DispatchQueue.main.async {
+        self.progressView.setProgress(Float(self.valueForRest), animated: true)
+        }
+        
+        if valueForRest > 1 {
+            
+            UIView.animate(withDuration: 0.5, animations: { 
+
+                self.progressView.alpha = 0
+                self.moveOnButton.backgroundColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
+            })
+            
+            moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 3), forKey: "scale_button")
+            restTimer?.invalidate()
+            restTimer = nil
+            
+            let cells = collectionView.visibleCells
+            let cell = cells[0] as! DynamicTrainCell
+            let nextExercise = data?[(collectionView.indexPath(for: cell)?.row)! + 1].stringValue
+            
+            self.notificationWithString(string: getURLString(fromString: nextExercise!)!)
+        }
+    }
+    
+    func tapedContinue() {
+        if valueForRest < 1 {
+            // inform user
+        }
+        UIView.animate(withDuration: 0.4) {
+        
+            self.restLabel.alpha = 0.0
+            self.progressView.setProgress(0, animated: false)
+            self.stepLabel.textColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
+            self.progressView.alpha = 0
+            self.moveOnButton.backgroundColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
+
+        }
+        
+        self.timeRemaining = 25
+        self.valueForRest = 0
+        moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 3), forKey: "scale_button")
+        restTimer?.invalidate()
+        restTimer = nil
+    }
+
+    func showFinishVC() {
+        let finishVC = self.storyboard?.instantiateViewController(withIdentifier: "finishVC") as! FinishVC
+        navigationController?.pushViewController(finishVC, animated: true)
+    }
+    
+ //   func addFillingEffect() {
+ //       let badgeView = FillView(frame:moveOnButton.frame)
+ //       badgeView.setCoeff(coeff: 1.0, duration: 15.0)
+  //      view.addSubview(badgeView)
+ //   }
     
 }

@@ -11,6 +11,7 @@ target 'TrainerCoach' do
   pod 'SwiftyJSON', '~> 3.1'
   pod 'YouTubePlayer'
   pod 'Firebase/Database'
+  pod 'KDCircularProgress'	
   pod 'CHIPageControl', '~> 0.1.3'
  end
 	

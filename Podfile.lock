@@ -47,6 +47,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
+  - KDCircularProgress (1.5.2)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI/Storage
+  - KDCircularProgress
   - SwiftyJSON (~> 3.1)
   - YouTubePlayer
 
@@ -77,11 +79,12 @@ SPEC CHECKSUMS:
   FirebaseUI: 5ebebe2c096c71f20abd1d43d0388958373bdaa0
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   nanopb: 22bc080fa3955e2116b6ff3ee6c2cb3c15ab97cb
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 7e79259d7818b57c337b67bd215a56146dad6bb4
+PODFILE CHECKSUM: 86a3f1c51ed837c105a7b2792ca487228543ca92
 
 COCOAPODS: 1.2.1

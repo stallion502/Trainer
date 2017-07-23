@@ -16,6 +16,9 @@
 		CE34E62F1F1F2F59000F6DB0 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6291F1F2F59000F6DB0 /* BEMCheckBox.m */; };
 		CE34E6301F1F2F59000F6DB0 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34E62B1F1F2F59000F6DB0 /* BEMCheckBoxGroup.m */; };
 		CE34E6311F1F2F59000F6DB0 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34E62D1F1F2F59000F6DB0 /* BEMPathManager.m */; };
+		CE34E6341F1F695F000F6DB0 /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6331F1F695F000F6DB0 /* Pulsing.swift */; };
+		CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6351F20CCA3000F6DB0 /* FillView.swift */; };
+		CE34E6381F22311C000F6DB0 /* FinishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6371F22311C000F6DB0 /* FinishVC.swift */; };
 		CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3693CE1F139EBB00E76B2A /* iCarousel.m */; };
 		CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */; };
 		CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */; };
@@ -30,6 +33,16 @@
 		CE8B35F91F110F8900EA6C41 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE102D381F1100FA0009E3A4 /* iAd.framework */; };
 		CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */; };
 		CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */; };
+		CEDA55821F24A7AE000A6A29 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55781F24A7AE000A6A29 /* UIButtonX.swift */; };
+		CEDA55831F24A7AE000A6A29 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55791F24A7AE000A6A29 /* UIImageViewX.swift */; };
+		CEDA55841F24A7AE000A6A29 /* UILabelX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557A1F24A7AE000A6A29 /* UILabelX.swift */; };
+		CEDA55851F24A7AE000A6A29 /* UISliderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557B1F24A7AE000A6A29 /* UISliderX.swift */; };
+		CEDA55861F24A7AE000A6A29 /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557C1F24A7AE000A6A29 /* UITextFieldX.swift */; };
+		CEDA55871F24A7AE000A6A29 /* UIViewAnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557D1F24A7AE000A6A29 /* UIViewAnchorPoint.swift */; };
+		CEDA55881F24A7AE000A6A29 /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557E1F24A7AE000A6A29 /* UIViewControllerX.swift */; };
+		CEDA55891F24A7AE000A6A29 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557F1F24A7AE000A6A29 /* UIViewX.swift */; };
+		CEDA558A1F24A7AE000A6A29 /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55801F24A7AE000A6A29 /* UIViewXRadialGradient.swift */; };
+		CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55811F24A7AE000A6A29 /* UIVisualEffectViewX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +82,9 @@
 		CE34E62B1F1F2F59000F6DB0 /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBoxGroup.m; sourceTree = "<group>"; };
 		CE34E62C1F1F2F59000F6DB0 /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
 		CE34E62D1F1F2F59000F6DB0 /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
+		CE34E6331F1F695F000F6DB0 /* Pulsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
+		CE34E6351F20CCA3000F6DB0 /* FillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillView.swift; sourceTree = "<group>"; };
+		CE34E6371F22311C000F6DB0 /* FinishVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishVC.swift; sourceTree = "<group>"; };
 		CE3693CC1F139EB900E76B2A /* TrainerCoach-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrainerCoach-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE3693CD1F139EBB00E76B2A /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		CE3693CE1F139EBB00E76B2A /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -90,6 +106,16 @@
 		CE8B35F71F11082A00EA6C41 /* TrainData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainData.swift; sourceTree = "<group>"; };
 		CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandbleHeaderView.swift; sourceTree = "<group>"; };
 		CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProTrainingVC.swift; sourceTree = "<group>"; };
+		CEDA55781F24A7AE000A6A29 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
+		CEDA55791F24A7AE000A6A29 /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
+		CEDA557A1F24A7AE000A6A29 /* UILabelX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelX.swift; sourceTree = "<group>"; };
+		CEDA557B1F24A7AE000A6A29 /* UISliderX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderX.swift; sourceTree = "<group>"; };
+		CEDA557C1F24A7AE000A6A29 /* UITextFieldX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldX.swift; sourceTree = "<group>"; };
+		CEDA557D1F24A7AE000A6A29 /* UIViewAnchorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnchorPoint.swift; sourceTree = "<group>"; };
+		CEDA557E1F24A7AE000A6A29 /* UIViewControllerX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerX.swift; sourceTree = "<group>"; };
+		CEDA557F1F24A7AE000A6A29 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		CEDA55801F24A7AE000A6A29 /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
+		CEDA55811F24A7AE000A6A29 /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
 		D208245F58EFC1D5C92DD6A7 /* libPods-TrainerCoachTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrainerCoachTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,16 +206,20 @@
 				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
 				CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */,
 				CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */,
+				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
 				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
+				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
 				CE7495181F10F3A400FE3C48 /* Main.storyboard */,
 				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
 				CE7495201F10F3A400FE3C48 /* Info.plist */,
 				CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */,
+				CE34E6331F1F695F000F6DB0 /* Pulsing.swift */,
 				CE102D3A1F1101840009E3A4 /* ExercisesData.swift */,
 				CE8B35F71F11082A00EA6C41 /* TrainData.swift */,
 				CE3693CD1F139EBB00E76B2A /* iCarousel.h */,
 				CE3693CE1F139EBB00E76B2A /* iCarousel.m */,
+				CEDA55771F24A755000A6A29 /* DesignbleX */,
 				CE34E6321F1F2F89000F6DB0 /* BEMCheckBox */,
 				CE3693CC1F139EB900E76B2A /* TrainerCoach-Bridging-Header.h */,
 			);
@@ -213,6 +243,23 @@
 			);
 			path = TrainerCoachUITests;
 			sourceTree = SOURCE_ROOT;
+		};
+		CEDA55771F24A755000A6A29 /* DesignbleX */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA55781F24A7AE000A6A29 /* UIButtonX.swift */,
+				CEDA55791F24A7AE000A6A29 /* UIImageViewX.swift */,
+				CEDA557A1F24A7AE000A6A29 /* UILabelX.swift */,
+				CEDA557B1F24A7AE000A6A29 /* UISliderX.swift */,
+				CEDA557C1F24A7AE000A6A29 /* UITextFieldX.swift */,
+				CEDA557D1F24A7AE000A6A29 /* UIViewAnchorPoint.swift */,
+				CEDA557E1F24A7AE000A6A29 /* UIViewControllerX.swift */,
+				CEDA557F1F24A7AE000A6A29 /* UIViewX.swift */,
+				CEDA55801F24A7AE000A6A29 /* UIViewXRadialGradient.swift */,
+				CEDA55811F24A7AE000A6A29 /* UIVisualEffectViewX.swift */,
+			);
+			name = DesignbleX;
+			sourceTree = "<group>";
 		};
 		CF401C7B629A0AAF0B4765BC /* Frameworks */ = {
 			isa = PBXGroup;
@@ -302,8 +349,14 @@
 				TargetAttributes = {
 					CE7495101F10F3A400FE3C48 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3KN8572N9S;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					CE7495241F10F3A400FE3C48 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -509,17 +562,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */,
+				CEDA55881F24A7AE000A6A29 /* UIViewControllerX.swift in Sources */,
+				CEDA55821F24A7AE000A6A29 /* UIButtonX.swift in Sources */,
+				CE34E6341F1F695F000F6DB0 /* Pulsing.swift in Sources */,
+				CEDA558A1F24A7AE000A6A29 /* UIViewXRadialGradient.swift in Sources */,
 				CE7495171F10F3A400FE3C48 /* ViewController.swift in Sources */,
 				CE34E62E1F1F2F59000F6DB0 /* BEMAnimationManager.m in Sources */,
+				CE34E6381F22311C000F6DB0 /* FinishVC.swift in Sources */,
+				CEDA55841F24A7AE000A6A29 /* UILabelX.swift in Sources */,
+				CEDA55871F24A7AE000A6A29 /* UIViewAnchorPoint.swift in Sources */,
 				CE34E6311F1F2F59000F6DB0 /* BEMPathManager.m in Sources */,
+				CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */,
 				CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */,
 				CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */,
 				CE34E62F1F1F2F59000F6DB0 /* BEMCheckBox.m in Sources */,
+				CEDA55851F24A7AE000A6A29 /* UISliderX.swift in Sources */,
 				CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */,
 				CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */,
 				CE8B35F81F11082A00EA6C41 /* TrainData.swift in Sources */,
+				CEDA55891F24A7AE000A6A29 /* UIViewX.swift in Sources */,
 				CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */,
 				CE34E6301F1F2F59000F6DB0 /* BEMCheckBoxGroup.m in Sources */,
+				CEDA55831F24A7AE000A6A29 /* UIImageViewX.swift in Sources */,
+				CEDA55861F24A7AE000A6A29 /* UITextFieldX.swift in Sources */,
 				CE102D3B1F1101840009E3A4 /* ExercisesData.swift in Sources */,
 				CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */,
 			);
@@ -677,8 +743,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 3KN8572N9S;
 				INFOPLIST_FILE = TrainerCoach/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Introvert.TrainerCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -694,8 +761,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 3KN8572N9S;
 				INFOPLIST_FILE = TrainerCoach/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Introvert.TrainerCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
