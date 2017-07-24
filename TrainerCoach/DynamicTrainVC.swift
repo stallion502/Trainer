@@ -29,6 +29,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var restLabel: UILabel!
     
+    var week: Int?
     var isRest: Bool? = true
     var startTime: TimeInterval?
     var timer: Timer?
@@ -41,6 +42,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     var restTimer: Timer?
     var valueForRest:Double = 0
     var timeRemaining:Float = 25
+    var titleLabelText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +60,6 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        moveOnButton.layer.cornerRadius = 4
-        moveOnButton.layer.masksToBounds = true
         
         checkBox.alpha = 0
         self.alarmClock.alpha = 0
@@ -93,8 +92,8 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func bloatWithCount(count:Int) -> CABasicAnimation {
         let animation = CABasicAnimation(keyPath: "transform.scale")
-        animation.toValue = 1.2
-        animation.duration = 0.6
+        animation.toValue = 1.3
+        animation.duration = 0.8
         animation.repeatCount = Float(count)
         animation.autoreverses = true
         return animation
@@ -159,7 +158,6 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.timer?.invalidate()
     }
 
     @IBAction func moveOn(_ sender: UIButton) {
@@ -306,8 +304,12 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func addPulse() {
-        alarmClock.alpha = 1.0
-        self.stepLabel.transform = CGAffineTransform(translationX: 20, y: 0)
+        
+        UIView.animate(withDuration: 1.0) { 
+            self.alarmClock.alpha = 1.0
+            self.stepLabel.transform = CGAffineTransform(translationX: 20, y: 0)
+            }
+        alarmClock.layer.add(bloatWithCount(count: Int(timeRemaining-Float(5))), forKey: "scaleAlarm")
         let pulse = Pulsing(nuberOfPulses: Float.infinity, position: self.alarmClock.center)
         pulse.backgroundColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1).cgColor
         self.view.layer.insertSublayer(pulse, below: self.alarmClock.layer)
@@ -336,7 +338,6 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.stepLabel.textColor = UIColor.lightGray
             self.moveOnButton.backgroundColor = UIColor.lightGray
             self.progressView.alpha = 1
-            self.progressView.transform = CGAffineTransform(scaleX: 1, y: 4)
             
         }
     }
@@ -431,7 +432,13 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func showFinishVC() {
+        self.timer?.invalidate()
+        self.timer = nil
         let finishVC = self.storyboard?.instantiateViewController(withIdentifier: "finishVC") as! FinishVC
+        finishVC.swiftyData = self.data
+        finishVC.time = stepLabel.text?.substring(from: (stepLabel.text?.index((stepLabel.text?.startIndex)!, offsetBy: 6))!)
+        finishVC.titleLabelText = self.titleLabelText
+        finishVC.week = self.week
         navigationController?.pushViewController(finishVC, animated: true)
     }
     

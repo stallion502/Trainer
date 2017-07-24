@@ -44,7 +44,7 @@ class Pulsing: CALayer {
     func createOpacityAnimation() -> CABasicAnimation {
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale.xy")
         scaleAnimation.fromValue = 0
-        scaleAnimation.toValue = 1
+        scaleAnimation.toValue = 2
         scaleAnimation.duration = animationDuration
         
         return scaleAnimation

@@ -18,6 +18,7 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var exerciseView: UIView!
     var youTubePlayer: YouTubePlayerView?
+    var titleLabelText: String?
     static var storage: Storage = Storage.storage(url: "gs://personalcoach-edc0d.appspot.com")
     
     override func viewDidLoad() {
@@ -63,6 +64,8 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func headerToggled(_ sender: UITapGestureRecognizer){
         let dynamicTrainVC = self.storyboard?.instantiateViewController(withIdentifier: "DynamicTrainVC") as! DynamicTrainVC
         dynamicTrainVC.data = proData?[(sender.view?.tag)!]["exercises"].arrayValue
+        dynamicTrainVC.titleLabelText = self.titleLabelText
+        dynamicTrainVC.week = (sender.view?.tag)!
         navigationController?.pushViewController(dynamicTrainVC, animated: true)
 
     }

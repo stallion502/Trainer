@@ -43,6 +43,7 @@
 		CEDA55891F24A7AE000A6A29 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557F1F24A7AE000A6A29 /* UIViewX.swift */; };
 		CEDA558A1F24A7AE000A6A29 /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55801F24A7AE000A6A29 /* UIViewXRadialGradient.swift */; };
 		CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55811F24A7AE000A6A29 /* UIVisualEffectViewX.swift */; };
+		CEDA55951F25053B000A6A29 /* FinishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55941F25053B000A6A29 /* FinishCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		CEDA557F1F24A7AE000A6A29 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		CEDA55801F24A7AE000A6A29 /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
 		CEDA55811F24A7AE000A6A29 /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
+		CEDA55941F25053B000A6A29 /* FinishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishCell.swift; sourceTree = "<group>"; };
 		D208245F58EFC1D5C92DD6A7 /* libPods-TrainerCoachTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrainerCoachTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -209,6 +211,7 @@
 				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
 				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
 				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
+				CEDA55941F25053B000A6A29 /* FinishCell.swift */,
 				CE7495181F10F3A400FE3C48 /* Main.storyboard */,
 				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
@@ -571,6 +574,7 @@
 				CE34E62E1F1F2F59000F6DB0 /* BEMAnimationManager.m in Sources */,
 				CE34E6381F22311C000F6DB0 /* FinishVC.swift in Sources */,
 				CEDA55841F24A7AE000A6A29 /* UILabelX.swift in Sources */,
+				CEDA55951F25053B000A6A29 /* FinishCell.swift in Sources */,
 				CEDA55871F24A7AE000A6A29 /* UIViewAnchorPoint.swift in Sources */,
 				CE34E6311F1F2F59000F6DB0 /* BEMPathManager.m in Sources */,
 				CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */,

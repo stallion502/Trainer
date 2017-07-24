@@ -115,6 +115,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         default: break
         }
         proTraining.proData = json
+        proTraining.titleLabelText = trainData?[indexPath.section].title
         tableView.deselectRow(at: indexPath, animated: true)
 
         navigationController?.pushViewController(proTraining, animated: true)

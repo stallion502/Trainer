@@ -84,6 +84,14 @@
       "idiom" : "ipad",
       "size" : "83.5x83.5",
       "scale" : "2x"
+    },
+    {
+      "filename" : "IN_Label_Red@2x.png",
+      "unassigned" : true
+    },
+    {
+      "filename" : "IN_Label_Red@3x.png",
+      "unassigned" : true
     }
   ],
   "info" : {
