@@ -28,7 +28,9 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var alarmClock: UIImageView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var restLabel: UILabel!
+    var animatingImages = [#imageLiteral(resourceName: "_1"),#imageLiteral(resourceName: "_2"),#imageLiteral(resourceName: "_3"),#imageLiteral(resourceName: "_4"),#imageLiteral(resourceName: "_5"),#imageLiteral(resourceName: "_6"),#imageLiteral(resourceName: "_7"),#imageLiteral(resourceName: "_8"),#imageLiteral(resourceName: "_9"),#imageLiteral(resourceName: "_10"),#imageLiteral(resourceName: "_11"),#imageLiteral(resourceName: "_12")]
     
+    var mainCounter: Int = 0
     var week: Int?
     var isRest: Bool? = true
     var startTime: TimeInterval?
@@ -61,12 +63,16 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        alarmClock.animationImages = animatingImages
+        alarmClock.animationDuration = 0.8
+        
         checkBox.alpha = 0
         self.alarmClock.alpha = 0
         configureCheckBox()
         checkBox.onAnimationType = .stroke
         progressView.alpha = 0
         restLabel.alpha = 0
+        progressView.transform = CGAffineTransform(scaleX: 1, y: 2)
         
         UIView.animate(withDuration: 0.4) {
             self.stepLabel.transform = CGAffineTransform(translationX: 0 , y: 250)
@@ -98,6 +104,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         animation.autoreverses = true
         return animation
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
@@ -169,9 +176,9 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if isRest == true {
             //make counterInt null
-            if counterInt ==  array[indexPathes[0].row] {
+            if counterInt ==  array[nextCell - 1] {
                 
-                if array[nextCell - 1] == array.last {
+                if mainCounter == array.reduce(0, +) - 1 {
                     showFinishVC()
                     return
                 }
@@ -181,6 +188,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
                 nextCell+=1
                 contetnInt = 0
                 counterInt = 1
+                mainCounter+=1
                 moveOnButton.setTitle("Продолжить", for: .normal)
                 moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 2), forKey: "scaleButton")
                 
@@ -196,6 +204,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 2), forKey: "scaleButton")
             isRest = false
             counterInt+=1
+            mainCounter+=1
             contetnInt+=1
             pageControl.set(progress: contetnInt, animated: true)
             addPulse()
@@ -307,6 +316,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         UIView.animate(withDuration: 1.0) { 
             self.alarmClock.alpha = 1.0
+            self.alarmClock.startAnimating()
             self.stepLabel.transform = CGAffineTransform(translationX: 20, y: 0)
             }
         alarmClock.layer.add(bloatWithCount(count: Int(timeRemaining-Float(5))), forKey: "scaleAlarm")
@@ -316,8 +326,12 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func removePulse() {
-        alarmClock.alpha = 0.0
-        self.stepLabel.transform = .identity
+        
+        UIView.animate(withDuration: 0.5) { 
+            self.alarmClock.stopAnimating()
+            self.alarmClock.alpha = 0.0
+            self.stepLabel.transform = .identity
+        }
         
         for layer in view.layer.sublayers!{
             if ((layer as? Pulsing) != nil) {
@@ -334,6 +348,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.restTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(restCountDown), userInfo: nil, repeats: true)
         UIView.animate(withDuration: 0.5) {
             self.alarmClock.alpha = 1
+            self.alarmClock.startAnimating()
             self.restLabel.alpha = 1
             self.stepLabel.textColor = UIColor.lightGray
             self.moveOnButton.backgroundColor = UIColor.lightGray
@@ -414,8 +429,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         if valueForRest < 1 {
             // inform user
         }
-        UIView.animate(withDuration: 0.4) {
-        
+        UIView.animate(withDuration: 0.5) {
             self.restLabel.alpha = 0.0
             self.progressView.setProgress(0, animated: false)
             self.stepLabel.textColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)

@@ -22,6 +22,9 @@
 		CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3693CE1F139EBB00E76B2A /* iCarousel.m */; };
 		CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */; };
 		CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */; };
+		CE45B8591F28999700BADA4E /* ProTrainingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */; };
+		CE45B85B1F28E8AB00BADA4E /* ListToDetailAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */; };
+		CE45B85D1F2B342200BADA4E /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45B85C1F2B342200BADA4E /* AnnotationView.swift */; };
 		CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7495141F10F3A400FE3C48 /* AppDelegate.swift */; };
 		CE7495171F10F3A400FE3C48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7495161F10F3A400FE3C48 /* ViewController.swift */; };
 		CE74951A1F10F3A400FE3C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7495181F10F3A400FE3C48 /* Main.storyboard */; };
@@ -91,6 +94,9 @@
 		CE3693CE1F139EBB00E76B2A /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTrainVC.swift; sourceTree = "<group>"; };
 		CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTrainCell.swift; sourceTree = "<group>"; };
+		CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProTrainingHeader.swift; sourceTree = "<group>"; };
+		CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListToDetailAnimation.swift; sourceTree = "<group>"; };
+		CE45B85C1F2B342200BADA4E /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		CE7495111F10F3A400FE3C48 /* TrainerCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainerCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7495141F10F3A400FE3C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7495161F10F3A400FE3C48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -210,8 +216,11 @@
 				CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */,
 				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
 				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
+				CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */,
 				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
 				CEDA55941F25053B000A6A29 /* FinishCell.swift */,
+				CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */,
+				CE45B85C1F2B342200BADA4E /* AnnotationView.swift */,
 				CE7495181F10F3A400FE3C48 /* Main.storyboard */,
 				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
@@ -570,13 +579,16 @@
 				CEDA55821F24A7AE000A6A29 /* UIButtonX.swift in Sources */,
 				CE34E6341F1F695F000F6DB0 /* Pulsing.swift in Sources */,
 				CEDA558A1F24A7AE000A6A29 /* UIViewXRadialGradient.swift in Sources */,
+				CE45B85B1F28E8AB00BADA4E /* ListToDetailAnimation.swift in Sources */,
 				CE7495171F10F3A400FE3C48 /* ViewController.swift in Sources */,
+				CE45B85D1F2B342200BADA4E /* AnnotationView.swift in Sources */,
 				CE34E62E1F1F2F59000F6DB0 /* BEMAnimationManager.m in Sources */,
 				CE34E6381F22311C000F6DB0 /* FinishVC.swift in Sources */,
 				CEDA55841F24A7AE000A6A29 /* UILabelX.swift in Sources */,
 				CEDA55951F25053B000A6A29 /* FinishCell.swift in Sources */,
 				CEDA55871F24A7AE000A6A29 /* UIViewAnchorPoint.swift in Sources */,
 				CE34E6311F1F2F59000F6DB0 /* BEMPathManager.m in Sources */,
+				CE45B8591F28999700BADA4E /* ProTrainingHeader.swift in Sources */,
 				CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */,
 				CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */,
 				CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */,

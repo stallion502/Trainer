@@ -10,7 +10,7 @@ import UIKit
 import KDCircularProgress
 import SwiftyJSON
 
-class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
     @IBOutlet weak var iphoneView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -32,7 +32,10 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var value2 = 0
     var value3 = 0
     var week: Int?
+    
+    
     //Check if train was already when toggle header pop up view with time of training decide what to add to user defaults 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
@@ -44,12 +47,23 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         var count = 1
         
-        if let exercice = UserDefaults.standard.object(forKey: titleLabelText!) as? Array<Any> {
-            count = exercice.count
+        if let exercice = UserDefaults.standard.object(forKey: titleLabelText!) as? NSMutableDictionary {
+            
+            if let weekEx = exercice["\(week!)"] {
+                count = exercice.count
+            }
+            else{
+                saveToDefaults()
+                count += 1
+            }
+        }
+        else {
+            saveToDefaults()
         }
         
         progressView.animate(fromAngle: 0.1, toAngle: Double(120 * count), duration: 2.1) { (bool) in
-            
+            self.progressView.layer.add(self.bloatWithCount(count: 1), forKey: "scale_phone")
+            self.InsideProgressView.layer.add(self.bloatWithCount(count: 1), forKey: "scale_phone")
         }
         
         tableView.delegate = self
@@ -175,9 +189,9 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func finishAction(_ sender: UIButton) {
-
+        self.navigationController?.popToRootViewController(animated: true)
     }
-    //Not working on the moment
+    
     @IBAction func taped(_ sender: UITapGestureRecognizer) {
         
         UIView.animate(withDuration: 0.4) {
@@ -207,14 +221,36 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func saveToDefaults() {
         //  Need to be repaired, check for already done this week
+        
+
         var dictionaryToWrite = NSMutableDictionary()
         dictionaryToWrite["time"] = self.time
         dictionaryToWrite["exercises"] = swiftyData?.count
         dictionaryToWrite["data"] = NSDate()
-        dictionaryToWrite["title"] = "\(titleLabelText!) - Day: \(week!)"
-        dictionaryToWrite["calories"] = (swiftyData?.count)! * 15 // Hardcoded ahain, doesn't know calorie value for ex
+        dictionaryToWrite["title"] = "\(titleLabelText!) - Day: \(week! + 1)"
+        dictionaryToWrite["calories"] = (swiftyData?.count)! * 15 // Hardcoded ahain, doesn't know calorie value forEX
+        
+        
+        var userDictionary = NSMutableDictionary()
+      //  userDictionary["exercise"] = dictionaryToWrite
+        userDictionary["\(week!)"] = dictionaryToWrite
       //  if arrayOfArnold
-      //  UserDefaults.standard.set(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
+        if let exercise = UserDefaults.standard.object(forKey:titleLabelText!) as? NSDictionary {
+            var mutableDictionary = NSMutableDictionary(dictionary: exercise)
+            UserDefaults.standard.removeObject(forKey: titleLabelText!)
+            mutableDictionary.setObject(dictionaryToWrite, forKey: "\(week!)" as NSCopying) //["\(week!)"] = dictionaryToWrite
+            UserDefaults.standard.set(exercise, forKey: titleLabelText!)
+            return
+        }
+        UserDefaults.standard.set(userDictionary, forKey: titleLabelText!)
     }
-
+    
+    func bloatWithCount(count:Int) -> CABasicAnimation {
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.toValue = 1.2
+        animation.duration = 0.8
+        animation.repeatCount = Float(count)
+        animation.autoreverses = true
+        return animation
+    }
 }
