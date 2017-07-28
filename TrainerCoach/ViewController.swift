@@ -145,6 +145,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
     }
     
+    deinit {
+        print("deinit ViewController")
+    }
+    
 }
 
 

@@ -13,6 +13,7 @@ target 'TrainerCoach' do
   pod 'Firebase/Database'
   pod 'KDCircularProgress'	
   pod 'CHIPageControl', '~> 0.1.3'
+  pod 'RealmSwift'
  end
 	
   target 'TrainerCoachTests' do

@@ -10,6 +10,8 @@
 		265193589DABD425DC36E995 /* libPods-TrainerCoachUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B12C1A46321418E3BBBE58 /* libPods-TrainerCoachUITests.a */; };
 		43A4A7612ACF33F45891998A /* libPods-TrainerCoachTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D208245F58EFC1D5C92DD6A7 /* libPods-TrainerCoachTests.a */; };
 		C14B7AD2FF696D1756AFA2D6 /* Pods_TrainerCoach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B887806CD016B9391D8C662 /* Pods_TrainerCoach.framework */; };
+		CE0875E61F2B8AE400B244FB /* InputUserDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */; };
+		CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E71F2BAAB100B244FB /* MainUserVC.swift */; };
 		CE102D371F11008E0009E3A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */; };
 		CE102D3B1F1101840009E3A4 /* ExercisesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE102D3A1F1101840009E3A4 /* ExercisesData.swift */; };
 		CE34E62E1F1F2F59000F6DB0 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6271F1F2F59000F6DB0 /* BEMAnimationManager.m */; };
@@ -25,6 +27,7 @@
 		CE45B8591F28999700BADA4E /* ProTrainingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */; };
 		CE45B85B1F28E8AB00BADA4E /* ListToDetailAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */; };
 		CE45B85D1F2B342200BADA4E /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45B85C1F2B342200BADA4E /* AnnotationView.swift */; };
+		CE45B85F1F2B4CE900BADA4E /* Conclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45B85E1F2B4CE900BADA4E /* Conclusion.swift */; };
 		CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7495141F10F3A400FE3C48 /* AppDelegate.swift */; };
 		CE7495171F10F3A400FE3C48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7495161F10F3A400FE3C48 /* ViewController.swift */; };
 		CE74951A1F10F3A400FE3C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7495181F10F3A400FE3C48 /* Main.storyboard */; };
@@ -75,6 +78,8 @@
 		81B12C1A46321418E3BBBE58 /* libPods-TrainerCoachUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrainerCoachUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F918AAA02D61B787C2A12 /* Pods-TrainerCoachUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerCoachUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerCoachUITests/Pods-TrainerCoachUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C895400A0C012E1076712609 /* Pods-TrainerCoachTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerCoachTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerCoachTests/Pods-TrainerCoachTests.release.xcconfig"; sourceTree = "<group>"; };
+		CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUserDataVC.swift; sourceTree = "<group>"; };
+		CE0875E71F2BAAB100B244FB /* MainUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserVC.swift; sourceTree = "<group>"; };
 		CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE102D381F1100FA0009E3A4 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		CE102D3A1F1101840009E3A4 /* ExercisesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesData.swift; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 		CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProTrainingHeader.swift; sourceTree = "<group>"; };
 		CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListToDetailAnimation.swift; sourceTree = "<group>"; };
 		CE45B85C1F2B342200BADA4E /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		CE45B85E1F2B4CE900BADA4E /* Conclusion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conclusion.swift; sourceTree = "<group>"; };
 		CE7495111F10F3A400FE3C48 /* TrainerCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainerCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7495141F10F3A400FE3C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7495161F10F3A400FE3C48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +227,8 @@
 				CEDA55941F25053B000A6A29 /* FinishCell.swift */,
 				CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */,
 				CE45B85C1F2B342200BADA4E /* AnnotationView.swift */,
+				CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */,
+				CE0875E71F2BAAB100B244FB /* MainUserVC.swift */,
 				CE7495181F10F3A400FE3C48 /* Main.storyboard */,
 				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
@@ -228,6 +236,7 @@
 				CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */,
 				CE34E6331F1F695F000F6DB0 /* Pulsing.swift */,
 				CE102D3A1F1101840009E3A4 /* ExercisesData.swift */,
+				CE45B85E1F2B4CE900BADA4E /* Conclusion.swift */,
 				CE8B35F71F11082A00EA6C41 /* TrainData.swift */,
 				CE3693CD1F139EBB00E76B2A /* iCarousel.h */,
 				CE3693CE1F139EBB00E76B2A /* iCarousel.m */,
@@ -592,12 +601,15 @@
 				CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */,
 				CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */,
 				CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */,
+				CE0875E61F2B8AE400B244FB /* InputUserDataVC.swift in Sources */,
 				CE34E62F1F1F2F59000F6DB0 /* BEMCheckBox.m in Sources */,
 				CEDA55851F24A7AE000A6A29 /* UISliderX.swift in Sources */,
 				CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */,
+				CE45B85F1F2B4CE900BADA4E /* Conclusion.swift in Sources */,
 				CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */,
 				CE8B35F81F11082A00EA6C41 /* TrainData.swift in Sources */,
 				CEDA55891F24A7AE000A6A29 /* UIViewX.swift in Sources */,
+				CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */,
 				CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */,
 				CE34E6301F1F2F59000F6DB0 /* BEMCheckBoxGroup.m in Sources */,
 				CEDA55831F24A7AE000A6A29 /* UIImageViewX.swift in Sources */,

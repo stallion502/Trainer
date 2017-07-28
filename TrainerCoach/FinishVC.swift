@@ -9,6 +9,7 @@
 import UIKit
 import KDCircularProgress
 import SwiftyJSON
+import RealmSwift
 
 class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
@@ -32,7 +33,7 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     var value2 = 0
     var value3 = 0
     var week: Int?
-    
+    var count = 1
     
     //Check if train was already when toggle header pop up view with time of training decide what to add to user defaults 
     
@@ -45,16 +46,19 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         progressView.angle = 0.5
         progressView.glowMode = .forward
         
-        var count = 1
         
-        if let exercice = UserDefaults.standard.object(forKey: titleLabelText!) as? NSMutableDictionary {
-            
-            if let weekEx = exercice["\(week!)"] {
-                count = exercice.count
-            }
-            else{
-                saveToDefaults()
-                count += 1
+        let realm = try! Realm()
+        let conclusions = realm.objects(Conclusion.self).filter("key = '\(titleLabelText!)'")
+        if conclusions.count != 0 {
+            for conclusion in conclusions {
+                
+                if conclusion.week == self.week {
+                    count = conclusions.count
+                }
+                else{
+                    saveToDefaults()
+                    count += 1
+                }
             }
         }
         else {
@@ -163,8 +167,8 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     func updateLabel() {
         
         let cells = tableView.visibleCells
-        
-        if value != 44 {
+        var variable = 33 * self.count / 100 // May not working
+        if value != lroundf(Float(variable)) * 100 {
             value += 1
             let firstWord = titleLabelText?.components(separatedBy: " ").first
             self.mainLabel.text = "\(firstWord ?? "") Progress\n\(value)%"
@@ -221,28 +225,19 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     func saveToDefaults() {
         //  Need to be repaired, check for already done this week
+        let realm = try! Realm()
         
-
-        var dictionaryToWrite = NSMutableDictionary()
-        dictionaryToWrite["time"] = self.time
-        dictionaryToWrite["exercises"] = swiftyData?.count
-        dictionaryToWrite["data"] = NSDate()
-        dictionaryToWrite["title"] = "\(titleLabelText!) - Day: \(week! + 1)"
-        dictionaryToWrite["calories"] = (swiftyData?.count)! * 15 // Hardcoded ahain, doesn't know calorie value forEX
+        let conclution = Conclusion()
+        conclution.key = titleLabelText!
+        conclution.time = self.time!
+        conclution.exercises = (swiftyData?.count)!
+        conclution.title = "\(titleLabelText!) - Day: \(week! + 1)"
+        conclution.calories = (swiftyData?.count)! * 15 // Hardcoded ahain, doesn't know calorie value forEX
+        conclution.week = week!
         
-        
-        var userDictionary = NSMutableDictionary()
-      //  userDictionary["exercise"] = dictionaryToWrite
-        userDictionary["\(week!)"] = dictionaryToWrite
-      //  if arrayOfArnold
-        if let exercise = UserDefaults.standard.object(forKey:titleLabelText!) as? NSDictionary {
-            var mutableDictionary = NSMutableDictionary(dictionary: exercise)
-            UserDefaults.standard.removeObject(forKey: titleLabelText!)
-            mutableDictionary.setObject(dictionaryToWrite, forKey: "\(week!)" as NSCopying) //["\(week!)"] = dictionaryToWrite
-            UserDefaults.standard.set(exercise, forKey: titleLabelText!)
-            return
+        try! realm.write {
+            realm.add(conclution)
         }
-        UserDefaults.standard.set(userDictionary, forKey: titleLabelText!)
     }
     
     func bloatWithCount(count:Int) -> CABasicAnimation {
@@ -252,5 +247,9 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         animation.repeatCount = Float(count)
         animation.autoreverses = true
         return animation
+    }
+    
+    deinit {
+        print("FinishVC")
     }
 }

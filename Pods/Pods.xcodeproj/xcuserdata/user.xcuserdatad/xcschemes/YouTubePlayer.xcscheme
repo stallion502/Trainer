@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2293AAE3448C3C35485933C51A19B95A'
+               BlueprintIdentifier = 'A47FAC943FFAEE6E6EF8FF61A87BAA40'
                BlueprintName = 'YouTubePlayer'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'YouTubePlayer.framework'>

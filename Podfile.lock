@@ -53,6 +53,11 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -65,6 +70,7 @@ DEPENDENCIES:
   - Firebase/Database
   - FirebaseUI/Storage
   - KDCircularProgress
+  - RealmSwift
   - SwiftyJSON (~> 3.1)
   - YouTubePlayer
 
@@ -81,10 +87,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   nanopb: 22bc080fa3955e2116b6ff3ee6c2cb3c15ab97cb
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 86a3f1c51ed837c105a7b2792ca487228543ca92
+PODFILE CHECKSUM: e04ba1089749a304ca361d8270aa292a55efae88
 
 COCOAPODS: 1.2.1

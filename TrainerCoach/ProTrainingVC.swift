@@ -10,18 +10,21 @@ import UIKit
 import SwiftyJSON
 import YouTubePlayer
 import FirebaseStorageUI
+import RealmSwift
 
-class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ProTrainingHeaderDelegate {
+class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ProTrainingHeaderDelegate, AnnotationViewDelegate {
     
     var proData: [JSON]?
     @IBOutlet weak var tableView: UITableView!
     var titleLabelText: String?
     static var storage: Storage = Storage.storage(url: "gs://personalcoach-edc0d.appspot.com")
     private var images = [#imageLiteral(resourceName: "firstCell"), #imageLiteral(resourceName: "backCell1"), #imageLiteral(resourceName: "backCell4")]
+    @IBOutlet var annotationView: AnnotationView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
@@ -127,27 +130,58 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
  
     func buttonTapedFor(_ indexPath: IndexPath) {
         print(indexPath)
-        
-        UserDefaults.standard.object(forKey: titleLabelText!)
-        
-        let annotationView = AnnotationView(frame: self.view.bounds)
+        let realm = try! Realm()
+        let conclusions = realm.objects(Conclusion.self).filter("key = '\(titleLabelText!)'")
+        let conclusion = conclusions.filter("week==\(indexPath.row)").first
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        annotationView.frame = self.view.bounds
+        annotationView.titleLabel_1.text = "\(conclusion?.calories ?? 0)"
+        annotationView.titleLabel_2.text = conclusion?.time
+        annotationView.titleLabel_3.text = "NOGI!" // hardcoded
+        annotationView.titleLabel_4.text = "\(conclusion?.exercises ?? 0)"
+        annotationView.alpha = 1
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let date = formatter.string(from: (conclusion?.date)!)
+        annotationView.dateLabel.text = "Последняя тренировка: " + date
         annotationView.transform = CGAffineTransform(translationX: 1000, y: 0)
         self.view.addSubview(annotationView)
         
-        UIView.animate(withDuration: 0.8, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: [], animations: { 
-            annotationView.transform = .identity
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: [], animations: {
+            self.annotationView.transform = .identity
         })
+        annotationView.delegate = self
     }
     
+    func buttonTaped() {
+        UIView.animate(withDuration: 0.8, animations: { 
+            self.annotationView.alpha = 0
+        }) { (bool) in
+            self.annotationView.removeFromSuperview()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+
+    
     func isButtonVisibleFor(_ indexPath:IndexPath) -> Bool {
-        if let exercise = UserDefaults.standard.object(forKey: titleLabelText!) as? NSDictionary {
-            if let week = exercise["\(indexPath.row)"] {
+        let realm = try! Realm()
+        let conclusions = realm.objects(Conclusion.self).filter("key = '\(titleLabelText!)'")
+        if conclusions.count != 0 {
+            for conclusion in conclusions {
+                if conclusion.week == indexPath.row {
                 return true
+            
+                }
             }
         }
         return false
     }
+    
+    deinit {
+        print("deinit ProTrainingVC")
+    }
 }
+
 
 extension UIView {
     

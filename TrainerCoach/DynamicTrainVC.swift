@@ -15,7 +15,6 @@ import AVFoundation
 
 class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
 
     @IBOutlet weak var moveOnButton: UIButton!
     @IBOutlet weak var stepLabel: UILabel!
@@ -49,9 +48,6 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-            UIApplication.shared.endBackgroundTask(self.backgroundTask)
-        })
         startTime = NSDate.timeIntervalSinceReferenceDate
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(advanceTimer), userInfo: nil, repeats: true)
         
@@ -448,12 +444,18 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     func showFinishVC() {
         self.timer?.invalidate()
         self.timer = nil
+        self.restTimer?.invalidate()
+        self.restTimer = nil
         let finishVC = self.storyboard?.instantiateViewController(withIdentifier: "finishVC") as! FinishVC
         finishVC.swiftyData = self.data
         finishVC.time = stepLabel.text?.substring(from: (stepLabel.text?.index((stepLabel.text?.startIndex)!, offsetBy: 6))!)
         finishVC.titleLabelText = self.titleLabelText
         finishVC.week = self.week
         navigationController?.pushViewController(finishVC, animated: true)
+    }
+    
+    deinit {
+        print("DynamictrainVC")
     }
     
  //   func addFillingEffect() {
