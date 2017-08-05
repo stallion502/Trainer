@@ -47,6 +47,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
+  - IQKeyboardManagerSwift (4.0.10)
   - KDCircularProgress (1.5.2)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI/Storage
+  - IQKeyboardManagerSwift
   - KDCircularProgress
   - RealmSwift
   - SwiftyJSON (~> 3.1)
@@ -85,6 +87,7 @@ SPEC CHECKSUMS:
   FirebaseUI: 5ebebe2c096c71f20abd1d43d0388958373bdaa0
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   nanopb: 22bc080fa3955e2116b6ff3ee6c2cb3c15ab97cb
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
@@ -93,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: e04ba1089749a304ca361d8270aa292a55efae88
+PODFILE CHECKSUM: 027ac2f4f1d4db66ebabd500ac26c81ae868a082
 
 COCOAPODS: 1.2.1

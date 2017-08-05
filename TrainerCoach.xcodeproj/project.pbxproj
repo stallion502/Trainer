@@ -10,6 +10,11 @@
 		265193589DABD425DC36E995 /* libPods-TrainerCoachUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B12C1A46321418E3BBBE58 /* libPods-TrainerCoachUITests.a */; };
 		43A4A7612ACF33F45891998A /* libPods-TrainerCoachTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D208245F58EFC1D5C92DD6A7 /* libPods-TrainerCoachTests.a */; };
 		C14B7AD2FF696D1756AFA2D6 /* Pods_TrainerCoach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B887806CD016B9391D8C662 /* Pods_TrainerCoach.framework */; };
+		CE0096DB1F2E0CC500694449 /* UserAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096DA1F2E0CC500694449 /* UserAttributes.swift */; };
+		CE0096DD1F308B6200694449 /* InitialUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096DC1F308B6200694449 /* InitialUserVC.swift */; };
+		CE0096DF1F309C1100694449 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096DE1F309C1100694449 /* UserCell.swift */; };
+		CE0096E41F351F4D00694449 /* MainUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096E31F351F4D00694449 /* MainUserCell.swift */; };
+		CE0096E61F35CC2F00694449 /* TrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096E51F35CC2E00694449 /* TrainingVC.swift */; };
 		CE0875E61F2B8AE400B244FB /* InputUserDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */; };
 		CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E71F2BAAB100B244FB /* MainUserVC.swift */; };
 		CE102D371F11008E0009E3A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */; };
@@ -78,6 +83,11 @@
 		81B12C1A46321418E3BBBE58 /* libPods-TrainerCoachUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrainerCoachUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F918AAA02D61B787C2A12 /* Pods-TrainerCoachUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerCoachUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerCoachUITests/Pods-TrainerCoachUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C895400A0C012E1076712609 /* Pods-TrainerCoachTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerCoachTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerCoachTests/Pods-TrainerCoachTests.release.xcconfig"; sourceTree = "<group>"; };
+		CE0096DA1F2E0CC500694449 /* UserAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAttributes.swift; sourceTree = "<group>"; };
+		CE0096DC1F308B6200694449 /* InitialUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialUserVC.swift; sourceTree = "<group>"; };
+		CE0096DE1F309C1100694449 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		CE0096E31F351F4D00694449 /* MainUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserCell.swift; sourceTree = "<group>"; };
+		CE0096E51F35CC2E00694449 /* TrainingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingVC.swift; sourceTree = "<group>"; };
 		CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUserDataVC.swift; sourceTree = "<group>"; };
 		CE0875E71F2BAAB100B244FB /* MainUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserVC.swift; sourceTree = "<group>"; };
 		CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -175,6 +185,52 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE0096E01F31E73700694449 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE0096DA1F2E0CC500694449 /* UserAttributes.swift */,
+				CE102D3A1F1101840009E3A4 /* ExercisesData.swift */,
+				CE45B85E1F2B4CE900BADA4E /* Conclusion.swift */,
+				CE8B35F71F11082A00EA6C41 /* TrainData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CE0096E11F31E75700694449 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE7495181F10F3A400FE3C48 /* Main.storyboard */,
+				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
+				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
+				CE45B85C1F2B342200BADA4E /* AnnotationView.swift */,
+				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
+				CE0096E31F351F4D00694449 /* MainUserCell.swift */,
+				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
+				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
+				CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */,
+				CEDA55941F25053B000A6A29 /* FinishCell.swift */,
+				CE0096DE1F309C1100694449 /* UserCell.swift */,
+				CE34E6331F1F695F000F6DB0 /* Pulsing.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CE0096E21F31E78A00694449 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE0875E71F2BAAB100B244FB /* MainUserVC.swift */,
+				CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */,
+				CE0096E51F35CC2E00694449 /* TrainingVC.swift */,
+				CE0096DC1F308B6200694449 /* InitialUserVC.swift */,
+				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
+				CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */,
+				CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */,
+				CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */,
+				CE7495161F10F3A400FE3C48 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		CE34E6321F1F2F89000F6DB0 /* BEMCheckBox */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,34 +271,17 @@
 		CE7495131F10F3A400FE3C48 /* TrainerCoach */ = {
 			isa = PBXGroup;
 			children = (
-				CE7495141F10F3A400FE3C48 /* AppDelegate.swift */,
-				CE7495161F10F3A400FE3C48 /* ViewController.swift */,
-				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
-				CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */,
-				CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */,
-				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
-				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
-				CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */,
-				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
-				CEDA55941F25053B000A6A29 /* FinishCell.swift */,
-				CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */,
-				CE45B85C1F2B342200BADA4E /* AnnotationView.swift */,
-				CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */,
-				CE0875E71F2BAAB100B244FB /* MainUserVC.swift */,
-				CE7495181F10F3A400FE3C48 /* Main.storyboard */,
-				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
-				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
-				CE7495201F10F3A400FE3C48 /* Info.plist */,
-				CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */,
-				CE34E6331F1F695F000F6DB0 /* Pulsing.swift */,
-				CE102D3A1F1101840009E3A4 /* ExercisesData.swift */,
-				CE45B85E1F2B4CE900BADA4E /* Conclusion.swift */,
-				CE8B35F71F11082A00EA6C41 /* TrainData.swift */,
-				CE3693CD1F139EBB00E76B2A /* iCarousel.h */,
-				CE3693CE1F139EBB00E76B2A /* iCarousel.m */,
+				CE0096E01F31E73700694449 /* Model */,
+				CE0096E11F31E75700694449 /* View */,
+				CE0096E21F31E78A00694449 /* Controller */,
 				CEDA55771F24A755000A6A29 /* DesignbleX */,
 				CE34E6321F1F2F89000F6DB0 /* BEMCheckBox */,
+				CE7495201F10F3A400FE3C48 /* Info.plist */,
+				CE7495141F10F3A400FE3C48 /* AppDelegate.swift */,
+				CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */,
 				CE3693CC1F139EB900E76B2A /* TrainerCoach-Bridging-Header.h */,
+				CE3693CD1F139EBB00E76B2A /* iCarousel.h */,
+				CE3693CE1F139EBB00E76B2A /* iCarousel.m */,
 			);
 			path = TrainerCoach;
 			sourceTree = "<group>";
@@ -585,7 +624,9 @@
 			files = (
 				CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */,
 				CEDA55881F24A7AE000A6A29 /* UIViewControllerX.swift in Sources */,
+				CE0096E41F351F4D00694449 /* MainUserCell.swift in Sources */,
 				CEDA55821F24A7AE000A6A29 /* UIButtonX.swift in Sources */,
+				CE0096DD1F308B6200694449 /* InitialUserVC.swift in Sources */,
 				CE34E6341F1F695F000F6DB0 /* Pulsing.swift in Sources */,
 				CEDA558A1F24A7AE000A6A29 /* UIViewXRadialGradient.swift in Sources */,
 				CE45B85B1F28E8AB00BADA4E /* ListToDetailAnimation.swift in Sources */,
@@ -598,6 +639,7 @@
 				CEDA55871F24A7AE000A6A29 /* UIViewAnchorPoint.swift in Sources */,
 				CE34E6311F1F2F59000F6DB0 /* BEMPathManager.m in Sources */,
 				CE45B8591F28999700BADA4E /* ProTrainingHeader.swift in Sources */,
+				CE0096DB1F2E0CC500694449 /* UserAttributes.swift in Sources */,
 				CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */,
 				CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */,
 				CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */,
@@ -612,7 +654,9 @@
 				CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */,
 				CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */,
 				CE34E6301F1F2F59000F6DB0 /* BEMCheckBoxGroup.m in Sources */,
+				CE0096E61F35CC2F00694449 /* TrainingVC.swift in Sources */,
 				CEDA55831F24A7AE000A6A29 /* UIImageViewX.swift in Sources */,
+				CE0096DF1F309C1100694449 /* UserCell.swift in Sources */,
 				CEDA55861F24A7AE000A6A29 /* UITextFieldX.swift in Sources */,
 				CE102D3B1F1101840009E3A4 /* ExercisesData.swift in Sources */,
 				CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */,

@@ -21,17 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="IN_Label_Red" translatesAutoresizingMaskIntoConstraints="NO" id="5yu-AE-QgK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="31B-tn-FbL">
+                                <rect key="frame" x="0.0" y="0.0" width="133" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="133" id="3Dp-ee-4Fx"/>
+                                    <constraint firstAttribute="height" constant="142" id="bVW-Qq-TlQ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="5yu-AE-QgK" secondAttribute="trailing" id="APb-Pi-uzI"/>
-                            <constraint firstItem="5yu-AE-QgK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qap-ht-T2p"/>
-                            <constraint firstItem="5yu-AE-QgK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="yAK-PZ-5zj"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="5yu-AE-QgK" secondAttribute="bottom" id="ypA-cc-sYc"/>
+                            <constraint firstItem="31B-tn-FbL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="PpY-Lr-Dx0"/>
+                            <constraint firstItem="31B-tn-FbL" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="s40-eo-yUc"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="KEg-nf-NSm" appends="YES" id="gCJ-5G-5MB"/>
@@ -45,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IN_Label_Red" width="2333" height="2330"/>
+        <image name="Group" width="633" height="633"/>
     </resources>
 </document>

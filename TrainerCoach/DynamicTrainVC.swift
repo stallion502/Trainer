@@ -165,7 +165,6 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBAction func moveOn(_ sender: UIButton) {
         
-        let indexPathes = collectionView.indexPathsForVisibleItems
         let array = dictionaryClass?.object(forKey: "repeats") as! [Int]
         
 

@@ -25,6 +25,7 @@ class ProTrainingHeader: UITableViewCell {
     @IBOutlet weak var secondRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var checkImageView: UIImageView!
+    
     var indexPath: IndexPath? {
         didSet {
             containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectHeader)))

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KDCircularProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,27 +87,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2D822D7974DE5AFDE5C38A344B9D4AA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>322428ECC8C5EC71F14C92233787C7AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C6C893A830905AA7A7FF9B99322B049</key>
+		<key>3ED84D9C06D482F6707F02BEFD306B56</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6EADF26BC7C615F65C7F2BFD483F63DB</key>
+		<key>42200481C2B58B53A348379DC8EF090E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>957DA0FE98C38DB0A3B6D57A7B14A880</key>
+		<key>A72594613F8E528A9B2B75D66AC901BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A47FAC943FFAEE6E6EF8FF61A87BAA40</key>
+		<key>A9341D7DF1E2AA2863ED970993B710AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C366F8AA82D1621C4BFAB10CE8BE547B</key>
+		<key>C235F77E101E742652CCF98FFDFA5182</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,12 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
+		<key>D64C61361ED4CD7C1E2CFAD0358E7ECF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA3577327A485EB099156081BE0DD1C3</key>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

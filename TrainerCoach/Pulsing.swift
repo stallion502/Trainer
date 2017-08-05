@@ -68,5 +68,15 @@ class Pulsing: CALayer {
         animateionGroup.timingFunction = defaultCurve
         self.animateionGroup.animations = [createOpacityAnimation(), createScaleAnimation()]
     }
+    
+    static func notAllowedColor() -> CAKeyframeAnimation {
+        let animation = CAKeyframeAnimation(keyPath: "borderColor")
+        animation.keyTimes = [0.4, 0.8, 0]
+        animation.values = [UIColor.clear.cgColor, UIColor.red.cgColor, UIColor.clear.cgColor]
+        animation.repeatCount = 3
+        animation.duration = 0.4;
+        return animation
+    }
+    
 }
 

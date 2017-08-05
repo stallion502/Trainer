@@ -14,6 +14,7 @@ target 'TrainerCoach' do
   pod 'KDCircularProgress'	
   pod 'CHIPageControl', '~> 0.1.3'
   pod 'RealmSwift'
+  pod 'IQKeyboardManagerSwift'
  end
 	
   target 'TrainerCoachTests' do

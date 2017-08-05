@@ -40,7 +40,7 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.navigationItem.leftBarButtonItem?.imageInsets = UIEdgeInsetsMake(5, 5, 5, 20)
         
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
-        let font = UIFont(name: "Avenir-Light", size: 25.0)
+        let font = UIFont(name: "Avenir-Light", size: 23.0)
         let attributeFontSaySomething : [String : Any] = [NSFontAttributeName : font!, NSForegroundColorAttributeName: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = attributeFontSaySomething
     }

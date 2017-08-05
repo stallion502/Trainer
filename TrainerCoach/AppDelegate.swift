@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseCore
 import UserNotifications
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Fallback on earlier versions
             
         }
-        
+        IQKeyboardManager.sharedManager().enable = true
         FirebaseApp.configure()
         return true
     }

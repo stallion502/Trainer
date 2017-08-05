@@ -22,6 +22,14 @@ class ExercisesData {
         })
     }
     
+    static func getProgram(_ key:String, completion: @escaping (JSON) -> ()) {
+        let reference = Database.database().reference(fromURL: "https://personalcoach-edc0d.firebaseio.com")
+        reference.child(key).queryOrderedByKey().observe(.value, with: { (snapshot) in
+            let json = JSON(snapshot.value as AnyObject)
+            completion(json)
+        })
+    }
+    
     static func getProTraining(completion: @escaping ([TrainData]) -> ()) {
         let reference = Database.database().reference(fromURL: "https://personalcoach-edc0d.firebaseio.com")
         reference.child("pro_trainig").queryOrderedByKey().observe(.value, with: { (snapshot) in
