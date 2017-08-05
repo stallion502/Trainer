@@ -1,5 +1,5 @@
 //
-//  MainUserCell.swift
+//  TrainingCell.swift
 //  TrainerCoach
 //
 //  Created by User on 05/08/2017.
@@ -8,8 +8,10 @@
 
 import Foundation
 
-class MainUserCell: UITableViewCell {
+class TrainingCell: UITableViewCell {
     
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var mytitleLabel: UILabel!
+    @IBOutlet weak var repeatLabel: UILabel!
+    
 }

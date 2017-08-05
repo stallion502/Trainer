@@ -109,6 +109,7 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         dynamicTrainVC.data = proData?[indexPath.row]["exercises"].arrayValue
         dynamicTrainVC.titleLabelText = self.titleLabelText
         dynamicTrainVC.week = indexPath.row
+        dynamicTrainVC.type = "pro"
         navigationController?.pushViewController(dynamicTrainVC, animated: true)
 
     }
@@ -168,7 +169,7 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let conclusions = realm.objects(Conclusion.self).filter("key = '\(titleLabelText!)'")
         if conclusions.count != 0 {
             for conclusion in conclusions {
-                if conclusion.week == indexPath.row {
+                if conclusion.week == indexPath.row && conclusion.type == "pro" {
                 return true
             
                 }

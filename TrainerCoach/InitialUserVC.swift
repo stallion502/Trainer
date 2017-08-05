@@ -88,7 +88,13 @@ class InitialUserVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBAction func goOnAction(_ sender: UIButton) {
         let toVC = self.storyboard?.instantiateViewController(withIdentifier: "MainUserVC") as! MainUserVC
         toVC.program = program
-        navigationController?.pushViewController(toVC, animated: true)
+        UIView.animate(withDuration: 0.4, animations: {
+            self.popUp.alpha = 0
+            self.blurEffectView.isHidden = true
+        }, completion:{ bool in
+            self.popUp.removeFromSuperview()
+        })
+         navigationController?.pushViewController(toVC, animated: true)
     }
     
     @IBAction func goBackAction(_ sender: Any) {
@@ -100,7 +106,12 @@ class InitialUserVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         })
     }
 
+    deinit {
+        print("InitialUserVC")
+    }
 }
+
+
 
 extension InitialUserVC : UINavigationControllerDelegate {
     

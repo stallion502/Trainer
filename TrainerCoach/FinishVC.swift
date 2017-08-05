@@ -34,7 +34,8 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     var value3 = 0
     var week: Int?
     var count = 1
-    
+    var type: String?
+    var degree = 0
     //Check if train was already when toggle header pop up view with time of training decide what to add to user defaults 
     
     override func viewDidLoad() {
@@ -45,7 +46,6 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
      //   progressView.startAngle = -90
         progressView.angle = 0.5
         progressView.glowMode = .forward
-        
         
         let realm = try! Realm()
         let conclusions = realm.objects(Conclusion.self).filter("key = '\(titleLabelText!)'")
@@ -64,8 +64,13 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         else {
             saveToDefaults()
         }
-        
-        progressView.animate(fromAngle: 0.1, toAngle: Double(120 * count), duration: 2.1) { (bool) in
+        if type == "user" {
+            degree = 360 / 25
+        }
+        else {
+           degree = 120
+        }
+        progressView.animate(fromAngle: 0.1, toAngle: Double(degree * count), duration: 2.1) { (bool) in
             self.progressView.layer.add(self.bloatWithCount(count: 1), forKey: "scale_phone")
             self.InsideProgressView.layer.add(self.bloatWithCount(count: 1), forKey: "scale_phone")
         }
@@ -166,12 +171,14 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     func updateLabel() {
         
-        let cells = tableView.visibleCells
-        var variable = 33 * self.count / 100 // May not working
-        if value != lroundf(Float(variable)) * 100 {
+        let cells = tableView.visibleCells // May not working
+        if value != degree {
             value += 1
             let firstWord = titleLabelText?.components(separatedBy: " ").first
             self.mainLabel.text = "\(firstWord ?? "") Progress\n\(value)%"
+        }
+        if type == "user" {
+            self.mainLabel.text = "Daily Progress\n\(value)%"
         }
         
         if value3 != swiftyData?.count{
@@ -234,6 +241,7 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         conclution.title = "\(titleLabelText!) - Day: \(week! + 1)"
         conclution.calories = (swiftyData?.count)! * 15 // Hardcoded ahain, doesn't know calorie value forEX
         conclution.week = week!
+        conclution.type = type!
         
         try! realm.write {
             realm.add(conclution)

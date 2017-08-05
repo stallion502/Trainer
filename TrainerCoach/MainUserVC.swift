@@ -15,32 +15,40 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var                program:String?
     var                programData:JSON?
     @IBOutlet weak var tableView:UITableView!
+    var                titles: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        self.view.addSubview(activityView)
-        activityView.startAnimating()
+        
         navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = false
         tableView.transform = CGAffineTransform(translationX: 1000, y: 0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        ExercisesData.getProgram(program!) {(json) in
+        
+        ExercisesData.getProgram(program!) { [weak self] json in
            print(json)
-            self.programData = json
-            self.tableView.reloadData()
+            self?.programData = json
+            self?.tableView.reloadData()
             UIView.animate(withDuration: 0.4, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.4, options: [], animations: {
-                self.tableView.transform = .identity
+                self?.tableView.transform = .identity
             })
+            self?.setTitles()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.setNavigationBarHidden(false, animated: false)
         self.title = "Тренировки"
         self.navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,23 +73,49 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainUserCell
+        cell.selectionStyle = .none
         if indexPath.row > 2 {
             cell.mainLabel.textColor = UIColor.lightGray
+            cell.mytitleLabel.textColor = UIColor.lightGray
         }
         else {
             cell.mainLabel.textColor = UIColor.black
+            cell.mytitleLabel.textColor = UIColor.black
         }
+            cell.mytitleLabel.text = nil
         
         cell.mainLabel?.text = "Тренировка \(indexPath.row + 1)"
+        let title = titles?[indexPath.row]
+        cell.mytitleLabel.text = title
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 80
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        let toVC = self.storyboard?.instantiateViewController(withIdentifier: "TrainingVC") as! TrainingVC
+        toVC.indexVC = indexPath.row + 1
+        toVC.trainingData = programData?[indexPath.row].arrayValue
+        navigationController?.pushViewController(toVC, animated: true)
+    }
+    
+    func setTitles() {
+        var array = programData?.arrayValue
+        titles = [String]()
+        titles?.append((array?[0].arrayValue.last?.stringValue)!)
+        array?.removeFirst()
+        titles?.append((array?[0].arrayValue.last?.stringValue)!)
+        array?.removeFirst()
+        titles?.append((array?[0].arrayValue.last?.stringValue)!)
+        array?.removeFirst()
+        
+        for _ in 0..<5 {
+            for item in array! {
+                self.titles?.append((item.arrayValue.last?.stringValue)!)
+            }
+        }
     }
     /*
     // MARK: - Navigation
@@ -92,5 +126,9 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    deinit {
+        print("MainUserVC")
+    }
 
 }

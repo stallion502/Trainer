@@ -15,6 +15,7 @@
 		CE0096DF1F309C1100694449 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096DE1F309C1100694449 /* UserCell.swift */; };
 		CE0096E41F351F4D00694449 /* MainUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096E31F351F4D00694449 /* MainUserCell.swift */; };
 		CE0096E61F35CC2F00694449 /* TrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096E51F35CC2E00694449 /* TrainingVC.swift */; };
+		CE0096E81F35D1AE00694449 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096E71F35D1AE00694449 /* TrainingCell.swift */; };
 		CE0875E61F2B8AE400B244FB /* InputUserDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */; };
 		CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E71F2BAAB100B244FB /* MainUserVC.swift */; };
 		CE102D371F11008E0009E3A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */; };
@@ -88,6 +89,7 @@
 		CE0096DE1F309C1100694449 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		CE0096E31F351F4D00694449 /* MainUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserCell.swift; sourceTree = "<group>"; };
 		CE0096E51F35CC2E00694449 /* TrainingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingVC.swift; sourceTree = "<group>"; };
+		CE0096E71F35D1AE00694449 /* TrainingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUserDataVC.swift; sourceTree = "<group>"; };
 		CE0875E71F2BAAB100B244FB /* MainUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserVC.swift; sourceTree = "<group>"; };
 		CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				CE74951B1F10F3A400FE3C48 /* Assets.xcassets */,
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
 				CE45B85C1F2B342200BADA4E /* AnnotationView.swift */,
+				CE0096E71F35D1AE00694449 /* TrainingCell.swift */,
 				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
 				CE0096E31F351F4D00694449 /* MainUserCell.swift */,
 				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
@@ -622,6 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0096E81F35D1AE00694449 /* TrainingCell.swift in Sources */,
 				CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */,
 				CEDA55881F24A7AE000A6A29 /* UIViewControllerX.swift in Sources */,
 				CE0096E41F351F4D00694449 /* MainUserCell.swift in Sources */,

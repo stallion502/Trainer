@@ -18,4 +18,5 @@ class Conclusion: Object {
     dynamic var title = ""
     dynamic var calories = 0
     dynamic var week = 0
+    dynamic var type = ""
 }

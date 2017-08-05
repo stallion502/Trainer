@@ -44,6 +44,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     var valueForRest:Double = 0
     var timeRemaining:Float = 25
     var titleLabelText: String?
+    var type: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,7 +129,8 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         firstLabel.text = "1/\(arrayOfRepeats[nextCell - 1])\n" + getURLString(fromString: exercise!)!
         secondLabel.text = "Repeats:\(array[nextCell - 1])"
         thirdLabel.text = nextExercise + "\nNext"
-        
+        pageControl.numberOfPages = arrayOfRepeats[nextCell - 1]
+        pageControl.set(progress: 0, animated: true)
         firstLabel.layer.add(bloatWithCount(count: 1), forKey: "scaleLabel")
 
         return cell
@@ -166,9 +168,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBAction func moveOn(_ sender: UIButton) {
         
         let array = dictionaryClass?.object(forKey: "repeats") as! [Int]
-        
-
-        
+    
         if isRest == true {
             //make counterInt null
             if counterInt ==  array[nextCell - 1] {
@@ -186,12 +186,11 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
                 mainCounter+=1
                 moveOnButton.setTitle("Продолжить", for: .normal)
                 moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 2), forKey: "scaleButton")
-                
-                pageControl.numberOfPages = array[nextCell - 1]
-                pageControl.set(progress: 0, animated: true)
                 showCheckBox()
                 dismissCheckBox()
                 updateLabel()
+                pageControl.numberOfPages = array[nextCell - 1]
+                pageControl.set(progress: 0, animated: true)
                 isRest = false
                 return
             }
@@ -278,7 +277,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     func getURLString(fromString string:String) -> String? {
         var resultString = ""
         for character in string.characters {
-            if character != Character("–") {
+            if character != Character("-") && character != Character("–") {
                 resultString += String(character)
                 continue
             }
@@ -450,6 +449,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         finishVC.time = stepLabel.text?.substring(from: (stepLabel.text?.index((stepLabel.text?.startIndex)!, offsetBy: 6))!)
         finishVC.titleLabelText = self.titleLabelText
         finishVC.week = self.week
+        finishVC.type = self.type
         navigationController?.pushViewController(finishVC, animated: true)
     }
     
