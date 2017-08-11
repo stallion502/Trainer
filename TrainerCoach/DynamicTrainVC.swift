@@ -45,6 +45,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     var timeRemaining:Float = 25
     var titleLabelText: String?
     var type: String?
+    var groups: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -423,15 +424,16 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         if valueForRest < 1 {
             // inform user
         }
+        self.alarmClock.stopAnimating()
         UIView.animate(withDuration: 0.5) {
             self.restLabel.alpha = 0.0
             self.progressView.setProgress(0, animated: false)
             self.stepLabel.textColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
             self.progressView.alpha = 0
             self.moveOnButton.backgroundColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
+            self.alarmClock.alpha = 0
 
         }
-        
         self.timeRemaining = 25
         self.valueForRest = 0
         moveOnButton.titleLabel?.layer.add(bloatWithCount(count: 3), forKey: "scale_button")
@@ -450,6 +452,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         finishVC.titleLabelText = self.titleLabelText
         finishVC.week = self.week
         finishVC.type = self.type
+        finishVC.groups = self.groups
         navigationController?.pushViewController(finishVC, animated: true)
     }
     

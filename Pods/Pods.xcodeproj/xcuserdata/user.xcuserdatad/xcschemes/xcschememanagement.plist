@@ -59,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftSoup.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D822D7974DE5AFDE5C38A344B9D4AA3</key>
+		<key>2D36D1D64960541C645E1DB8BF8B4537</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3ED84D9C06D482F6707F02BEFD306B56</key>
+		<key>726724AD81093507D0E35342822F1B7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42200481C2B58B53A348379DC8EF090E</key>
+		<key>7EE63E76357F73E8CA4E20C0312F811E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A72594613F8E528A9B2B75D66AC901BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A9341D7DF1E2AA2863ED970993B710AE</key>
+		<key>92EBF3E65AD51FF098AC6EE7FEE16EEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,17 +132,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C7FEE1E05207F69A9869A70237595498</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CF2B27C39A659CCCED9D47FC9E5BB8C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D64C61361ED4CD7C1E2CFAD0358E7ECF</key>
+		<key>E16E27A1CDAF0A855DABE39F9D766ECA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EEC3C85B4F45378D34864728703F3479</key>
 		<dict>
 			<key>primary</key>
 			<true/>

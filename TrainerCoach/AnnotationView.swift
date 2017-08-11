@@ -31,6 +31,7 @@ class AnnotationView: UIView {
     @IBAction func doneTaped(_ sender: UIButton) {
         delegate?.buttonTaped()
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

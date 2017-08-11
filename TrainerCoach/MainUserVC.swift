@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,16 +17,23 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var                programData:JSON?
     @IBOutlet weak var tableView:UITableView!
     var                titles: [String]?
+    @IBOutlet weak var blurView: UIView!
+    @IBOutlet var      popUp: UIView!
+    @IBOutlet weak var mainLabel: UILabel!
+    var                indexVC:Int?
+    var                time:Date?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        tabBarController?.tabBar.isHidden = false
         tableView.transform = CGAffineTransform(translationX: 1000, y: 0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        blurView.isHidden = true
+        popUp.layer.cornerRadius = 5
+        popUp.layer.masksToBounds = true
         
         ExercisesData.getProgram(program!) { [weak self] json in
            print(json)
@@ -40,7 +48,7 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: false)
         self.title = "Тренировки"
         self.navigationItem.setHidesBackButton(true, animated: false)
@@ -73,6 +81,7 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainUserCell
+        cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
         if indexPath.row > 2 {
             cell.mainLabel.textColor = UIColor.lightGray
@@ -83,6 +92,8 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.mytitleLabel.textColor = UIColor.black
         }
             cell.mytitleLabel.text = nil
+        
+        cell.backgroundColor = isCellDoneFor(indexPath) ? UIColor.init(red: 76/255, green: 217/255, blue: 100/255 , alpha: 0.5) : UIColor.clear
         
         cell.mainLabel?.text = "Тренировка \(indexPath.row + 1)"
         let title = titles?[indexPath.row]
@@ -95,9 +106,21 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isCellDoneFor(indexPath) {
+            animateIn("Тренировка уже проводилась")
+            indexVC = indexPath.row
+            return
+        }
+        
         let toVC = self.storyboard?.instantiateViewController(withIdentifier: "TrainingVC") as! TrainingVC
         toVC.indexVC = indexPath.row + 1
-        toVC.trainingData = programData?[indexPath.row].arrayValue
+        var data = indexPath.row > 2 ? programData?[(indexPath.row+1)%4 + 3].arrayValue : programData?[indexPath.row].arrayValue // hardcoded
+        toVC.groups = data?.last?.stringValue
+        data?.removeLast()
+        toVC.trainingData = data // hardcoded
+        toVC.type = "user"
+        toVC.titleLabelText = "Тренировка"
+        
         navigationController?.pushViewController(toVC, animated: true)
     }
     
@@ -117,15 +140,69 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func isCellDoneFor(_ indexPath:IndexPath) -> Bool {
+        let realm = try! Realm()
+        let conclusions = realm.objects(Conclusion.self).filter("key = 'Тренировка'")
+        if conclusions.count != 0 {
+            for conclusion in conclusions {
+                if conclusion.week == indexPath.row && conclusion.type == "user" {
+                    time = conclusion.date
+                    return true
+                    
+                }
+            }
+        }
+        return false
     }
-    */
+    
+    @IBAction func popBackAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.popUp.alpha = 0
+            self.blurView.isHidden = true
+        }, completion:{ bool in
+            self.popUp.removeFromSuperview()
+        })
+    }
+    
+
+    func animateIn(_ name:String) {
+        popUp.alpha = 0
+        popUp.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        popUp.center = view.center
+        popUp.dropShadow()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let date = formatter.string(from:(time)!)
+        let text = "Последняя тренировка: " + date
+        mainLabel.text = name + "\n" + text
+        view.addSubview(popUp)
+        self.blurView.isHidden = false
+        UIView.animate(withDuration: 0.4) {
+            self.popUp.alpha = 1
+            self.popUp.transform = .identity
+        }
+    }
+    
+    @IBAction func goOnAction(_ sender: Any) {
+        let toVC = self.storyboard?.instantiateViewController(withIdentifier: "TrainingVC") as! TrainingVC
+        toVC.indexVC = indexVC! + 1
+        var data = indexVC! > 2 ? programData?[(indexVC!+1)%4 + 3].arrayValue : programData?[indexVC!].arrayValue
+        toVC.groups = data?.last?.stringValue
+        data?.removeLast()
+        toVC.trainingData = data // hardcoded
+        toVC.type = "user"
+        toVC.titleLabelText = "Тренировка"
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.popUp.alpha = 0
+            self.blurView.isHidden = true
+        }, completion:{ bool in
+            self.popUp.removeFromSuperview()
+        })
+        
+        navigationController?.pushViewController(toVC, animated: true)
+    }
     
     deinit {
         print("MainUserVC")

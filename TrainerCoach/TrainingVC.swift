@@ -14,6 +14,9 @@ class TrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var trainingData: [JSON]?
     var indexVC: Int?
+    var groups: String?
+    var type: String?
+    var titleLabelText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,7 @@ class TrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         self.title = "Тренировка \(indexVC ?? 0)"
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,10 +54,18 @@ class TrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let numbers = title?.components(separatedBy: CharacterSet.decimalDigits.inverted).filter({return !$0.isEmpty})
         
         cell.mainLabel.text = getURLString(fromString: title!)
-        cell.repeatLabel.text = "\(numbers?[0] ?? "")x\(numbers?[1] ?? "")"
+        var repeats = "Макс."
+        if numbers?[1] != "1"{
+            repeats = (numbers?[1])!
+        }
+        cell.repeatLabel.text = "\(numbers?[0] ?? "")x\(repeats ?? "")"
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (trainingData?.count)! > 7 {
+            return 65
+        }
         return (view.frame.height - 140)/CGFloat((trainingData!.count - 1))
     }
     
@@ -74,10 +86,9 @@ class TrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func moveOnAction(_ sender: UIButton) {
         let toVC = storyboard?.instantiateViewController(withIdentifier: "DynamicTrainVC") as! DynamicTrainVC
-        trainingData?.remove(at: (trainingData?.count)!-1)
+        toVC.groups = self.groups
         toVC.data = trainingData
-        toVC.type = "user"
-        toVC.titleLabelText = "Тренировка"
+        toVC.type = self.type
         toVC.week = indexVC! - 1
         navigationController?.pushViewController(toVC, animated: true)
     }

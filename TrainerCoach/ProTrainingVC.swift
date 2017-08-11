@@ -88,9 +88,8 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.secondLeftConstraint.constant = 150
             cell.secondRightConstraint.constant = 12
         }
-        
-        let mainLabel = getURLString(withIndexPath: indexPath, false)
-        let titleString = getURLString(withIndexPath: indexPath, true)
+        let mainLabel = getURLString(withIndexPath: indexPath, true)
+        let titleString = getURLString(withIndexPath: indexPath, false)
         cell.checkedButton.isHidden = !isButtonVisibleFor(indexPath)
         cell.mainLabel?.text = mainLabel
         cell.title?.text = titleString
@@ -105,12 +104,13 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func didSelectHeader(_ indexPath: IndexPath) {
         
-        let dynamicTrainVC = self.storyboard?.instantiateViewController(withIdentifier: "DynamicTrainVC") as! DynamicTrainVC
-        dynamicTrainVC.data = proData?[indexPath.row]["exercises"].arrayValue
-        dynamicTrainVC.titleLabelText = self.titleLabelText
-        dynamicTrainVC.week = indexPath.row
-        dynamicTrainVC.type = "pro"
-        navigationController?.pushViewController(dynamicTrainVC, animated: true)
+        let toVC = self.storyboard?.instantiateViewController(withIdentifier: "TrainingVC") as! TrainingVC
+        toVC.trainingData = proData?[indexPath.row]["exercises"].arrayValue
+        toVC.titleLabelText = self.titleLabelText
+        toVC.indexVC = indexPath.row + 1
+        toVC.type = "pro"
+        toVC.groups = getURLString(withIndexPath: indexPath, false)
+        navigationController?.pushViewController(toVC, animated: true)
 
     }
     

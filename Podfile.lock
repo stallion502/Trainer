@@ -62,6 +62,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SwiftSoup (1.4.2)
   - SwiftyJSON (3.1.4)
   - YouTubePlayer (0.4.0)
 
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - KDCircularProgress
   - RealmSwift
+  - SwiftSoup
   - SwiftyJSON (~> 3.1)
   - YouTubePlayer
 
@@ -93,9 +95,10 @@ SPEC CHECKSUMS:
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftSoup: 9638363718859b469c3d7877b2b6a640348bacb7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 027ac2f4f1d4db66ebabd500ac26c81ae868a082
+PODFILE CHECKSUM: 8331c19b9cbcd1ae4f0af2a01decca73510f7e03
 
 COCOAPODS: 1.2.1

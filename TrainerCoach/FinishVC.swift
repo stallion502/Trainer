@@ -22,26 +22,28 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     @IBOutlet weak var bottomLayout: NSLayoutConstraint!
     var titleLabelText: String?
     var time: String?
-    
+    var groups: String?
     var timer: Timer?
-    var value = 0 // hardcoded
+    var value = 0.0 // hardcoded
     var swiftyData: [JSON]?
     let images = [#imageLiteral(resourceName: "birn"), #imageLiteral(resourceName: "time"), #imageLiteral(resourceName: "muscle"), #imageLiteral(resourceName: "dummbell")]
     let titles = ["Калорий сожжено:", "Время тренировки:", "Рабочие группы:", "Выполнено упражнений:"] // hardcoded
-    let data = ["342", "", "Ноги - плечи", "13"] // HardCoded what muscle groupe to use - Will be solved by Firebase
+    // HardCoded what muscle groupe to use - Will be solved by Firebase
     var value1 = 0
     var value2 = 0
     var value3 = 0
     var week: Int?
     var count = 1
     var type: String?
-    var degree = 0
+    var degree = 0.0
+    var data: [String]?
     //Check if train was already when toggle header pop up view with time of training decide what to add to user defaults 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
         configureView()
+        data = ["342", "", groups!, "13"]
         progressView.roundedCorners = false
      //   progressView.startAngle = -90
         progressView.angle = 0.5
@@ -70,7 +72,7 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         else {
            degree = 120
         }
-        progressView.animate(fromAngle: 0.1, toAngle: Double(degree * count), duration: 2.1) { (bool) in
+        progressView.animate(fromAngle: 0.1, toAngle: Double(degree * Double(count)), duration: 2.1) { (bool) in
             self.progressView.layer.add(self.bloatWithCount(count: 1), forKey: "scale_phone")
             self.InsideProgressView.layer.add(self.bloatWithCount(count: 1), forKey: "scale_phone")
         }
@@ -120,7 +122,7 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         
         cell.myImageView.image = images[indexPath.row]
         cell.leftLabel.text = titles[indexPath.row]
-        cell.rightLabel.text = data[indexPath.row]
+        cell.rightLabel.text = data?[indexPath.row]
         
         return cell
     }
@@ -172,13 +174,22 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     func updateLabel() {
         
         let cells = tableView.visibleCells // May not working
-        if value != degree {
-            value += 1
-            let firstWord = titleLabelText?.components(separatedBy: " ").first
-            self.mainLabel.text = "\(firstWord ?? "") Progress\n\(value)%"
-        }
+        let firstWord = titleLabelText?.components(separatedBy: " ").first
+        var title = "\(firstWord ?? "") Progress"
+        
         if type == "user" {
-            self.mainLabel.text = "Daily Progress\n\(value)%"
+            title = "Daily Progress"
+        }
+        
+        if value < Double(degree) {
+            if type == "user" {value += 0.1}
+            else {value += 1}
+            self.mainLabel.text = "\(title)\n\(value)%"
+        }
+            
+        else {
+            timer?.invalidate()
+            timer = nil
         }
         
         if value3 != swiftyData?.count{
@@ -191,11 +202,6 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
             value1 += 1
             let cell = cells[0] as! FinishCell
             cell.rightLabel.text = String(value1)
-        }
-            
-        else {
-            timer?.invalidate()
-            timer = nil
         }
     }
     
