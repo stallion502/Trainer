@@ -60,6 +60,10 @@ class InitialUserVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return 5
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.tableView.frame.height / 5
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
         cell.myLabel?.text = texts[indexPath.row]

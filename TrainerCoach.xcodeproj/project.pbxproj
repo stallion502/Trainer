@@ -61,7 +61,12 @@
 		CEDA558A1F24A7AE000A6A29 /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55801F24A7AE000A6A29 /* UIViewXRadialGradient.swift */; };
 		CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55811F24A7AE000A6A29 /* UIVisualEffectViewX.swift */; };
 		CEDA55951F25053B000A6A29 /* FinishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55941F25053B000A6A29 /* FinishCell.swift */; };
+		CEF1EB751F4245C900C6B326 /* ExpandbleHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF1EB741F4245C900C6B326 /* ExpandbleHeader.xib */; };
 		CEF4A5BE1F3DACC7001C4A51 /* DetailCalloryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A5BD1F3DACC6001C4A51 /* DetailCalloryVC.swift */; };
+		CEF4A5C01F3DB333001C4A51 /* DetailCalloryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A5BF1F3DB333001C4A51 /* DetailCalloryCell.swift */; };
+		CEF4A5C21F3DCFC0001C4A51 /* CalloryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A5C11F3DCFC0001C4A51 /* CalloryData.swift */; };
+		CEF4A5C41F3E58A4001C4A51 /* AddScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A5C31F3E58A4001C4A51 /* AddScheduleVC.swift */; };
+		CEF4A5CA1F404892001C4A51 /* AddSchedulerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A5C91F404892001C4A51 /* AddSchedulerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,7 +158,12 @@
 		CEDA55801F24A7AE000A6A29 /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
 		CEDA55811F24A7AE000A6A29 /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
 		CEDA55941F25053B000A6A29 /* FinishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishCell.swift; sourceTree = "<group>"; };
+		CEF1EB741F4245C900C6B326 /* ExpandbleHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandbleHeader.xib; sourceTree = "<group>"; };
 		CEF4A5BD1F3DACC6001C4A51 /* DetailCalloryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCalloryVC.swift; sourceTree = "<group>"; };
+		CEF4A5BF1F3DB333001C4A51 /* DetailCalloryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCalloryCell.swift; sourceTree = "<group>"; };
+		CEF4A5C11F3DCFC0001C4A51 /* CalloryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloryData.swift; sourceTree = "<group>"; };
+		CEF4A5C31F3E58A4001C4A51 /* AddScheduleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScheduleVC.swift; sourceTree = "<group>"; };
+		CEF4A5C91F404892001C4A51 /* AddSchedulerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSchedulerCell.swift; sourceTree = "<group>"; };
 		D208245F58EFC1D5C92DD6A7 /* libPods-TrainerCoachTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrainerCoachTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -204,6 +214,7 @@
 			children = (
 				CE0096DA1F2E0CC500694449 /* UserAttributes.swift */,
 				CE102D3A1F1101840009E3A4 /* ExercisesData.swift */,
+				CEF4A5C11F3DCFC0001C4A51 /* CalloryData.swift */,
 				CE45B85E1F2B4CE900BADA4E /* Conclusion.swift */,
 				CE8B35F71F11082A00EA6C41 /* TrainData.swift */,
 			);
@@ -218,9 +229,12 @@
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
 				CE45B85C1F2B342200BADA4E /* AnnotationView.swift */,
 				CE0096E71F35D1AE00694449 /* TrainingCell.swift */,
+				CEF4A5C91F404892001C4A51 /* AddSchedulerCell.swift */,
 				CE0096F11F38860F00694449 /* FoodView.swift */,
+				CEF1EB741F4245C900C6B326 /* ExpandbleHeader.xib */,
 				CE0096ED1F38516300694449 /* UltraVisualLayout.swift */,
 				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
+				CEF4A5BF1F3DB333001C4A51 /* DetailCalloryCell.swift */,
 				CE0096E31F351F4D00694449 /* MainUserCell.swift */,
 				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
 				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
@@ -239,6 +253,7 @@
 				CE0875E71F2BAAB100B244FB /* MainUserVC.swift */,
 				CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */,
 				CE0096E51F35CC2E00694449 /* TrainingVC.swift */,
+				CEF4A5C31F3E58A4001C4A51 /* AddScheduleVC.swift */,
 				CE0096DC1F308B6200694449 /* InitialUserVC.swift */,
 				CE0096EB1F384BBF00694449 /* FoodVC.swift */,
 				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
@@ -477,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF1EB751F4245C900C6B326 /* ExpandbleHeader.xib in Resources */,
 				CE74951F1F10F3A400FE3C48 /* LaunchScreen.storyboard in Resources */,
 				CE102D371F11008E0009E3A4 /* GoogleService-Info.plist in Resources */,
 				CE74951C1F10F3A400FE3C48 /* Assets.xcassets in Resources */,
@@ -671,6 +687,7 @@
 				CE34E62F1F1F2F59000F6DB0 /* BEMCheckBox.m in Sources */,
 				CE0096EC1F384BBF00694449 /* FoodVC.swift in Sources */,
 				CEDA55851F24A7AE000A6A29 /* UISliderX.swift in Sources */,
+				CEF4A5C21F3DCFC0001C4A51 /* CalloryData.swift in Sources */,
 				CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */,
 				CE45B85F1F2B4CE900BADA4E /* Conclusion.swift in Sources */,
 				CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */,
@@ -678,14 +695,17 @@
 				CE8B35F81F11082A00EA6C41 /* TrainData.swift in Sources */,
 				CEDA55891F24A7AE000A6A29 /* UIViewX.swift in Sources */,
 				CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */,
+				CEF4A5CA1F404892001C4A51 /* AddSchedulerCell.swift in Sources */,
 				CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */,
 				CE34E6301F1F2F59000F6DB0 /* BEMCheckBoxGroup.m in Sources */,
+				CEF4A5C01F3DB333001C4A51 /* DetailCalloryCell.swift in Sources */,
 				CE0096E61F35CC2F00694449 /* TrainingVC.swift in Sources */,
 				CEDA55831F24A7AE000A6A29 /* UIImageViewX.swift in Sources */,
 				CE0096DF1F309C1100694449 /* UserCell.swift in Sources */,
 				CEDA55861F24A7AE000A6A29 /* UITextFieldX.swift in Sources */,
 				CE102D3B1F1101840009E3A4 /* ExercisesData.swift in Sources */,
 				CEF4A5BE1F3DACC7001C4A51 /* DetailCalloryVC.swift in Sources */,
+				CEF4A5C41F3E58A4001C4A51 /* AddScheduleVC.swift in Sources */,
 				CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */,
 				CE4E8C261F3B344200773E24 /* CalloryVC.swift in Sources */,
 			);

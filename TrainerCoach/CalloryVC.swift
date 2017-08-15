@@ -26,10 +26,11 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if isFiltering {
             return 1
@@ -47,13 +48,16 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let keys = Array(data.keys)
+        if isFiltering {
+            return ""
+        }
         return keys[section]
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text == nil || searchController.searchBar.text == "" {
             isFiltering = false
-            view.endEditing(true)
+           // view.endEditing(true)
             tableView.reloadData()
         }
         else {

@@ -50,11 +50,12 @@ class FoodVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UICollectionViewCell
-        let toVC = segue.destination
-        //let indexPath = collec
-      //  toVC.title = "Завтрак \(collectionView.)"
-        
+        if segue.identifier == "identifier" {
+            let cell = sender as! UICollectionViewCell
+            let toVC = segue.destination
+            let indexPath = collectionView.indexPath(for: cell)
+            toVC.title = "Завтрак"
+        }
     }
     
 }

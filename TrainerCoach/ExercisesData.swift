@@ -77,6 +77,7 @@ class ExercisesData {
                             }
                             headers.append(string)
                         }
+                        var j = 0
                         var value = 0
                         var array = [String]()
                         for item in finish {
@@ -89,6 +90,11 @@ class ExercisesData {
                             }
                             array.append(item)
                             
+                            if j == 284 {
+                                let header = headers[value]
+                                dictionary[header] = array
+                            }
+                            j+=1
                         }
                         UserDefaults.standard.setValue(dictionary, forKey: "Food")
                         //  reference.child("Food").setValue(dictionary])

@@ -9,31 +9,37 @@
 import Foundation
 import UIKit
 
-protocol ExpandbleHeaderViewDelegate {
+protocol ExpandbleHeaderViewDelegate: class {
     func toogleSection(header: ExpandbleHeaderView,section: Int)
+    func deleteSection(section: Int)
 }
 
-class ExpandbleHeaderView: UITableViewHeaderFooterView {
+class ExpandbleHeaderView: UIView {
     
-    var delegate: ExpandbleHeaderViewDelegate?
+    weak var delegate: ExpandbleHeaderViewDelegate?
     var section: Int!
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    var label: UILabel?
+    @IBOutlet weak var rLabel: UILabel!
+    @IBOutlet weak var lLable: UILabel!
+    @IBOutlet weak var myImageView: UIImageView!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectHeaderAction(sender:))))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        myImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(deletePressed(sender:))))
+        print("caled")
     }
     
     func selectHeaderAction(sender: UITapGestureRecognizer){
         let cell = sender.view as! ExpandbleHeaderView
         delegate?.toogleSection(header: self, section: cell.section)
     }
+     func deletePressed(sender: UITapGestureRecognizer) {
+        delegate?.deleteSection(section: self.section)
+    }
     
     func customInit(section: Int, title: String, delegate: ExpandbleHeaderViewDelegate) {
-        self.textLabel?.text = title
+    //    self.leftLabel?.text = title
         self.section = section
         self.delegate = delegate
     }

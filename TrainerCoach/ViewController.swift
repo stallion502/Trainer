@@ -34,6 +34,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func deleteSection(section: Int) {
+        //
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return trainData?.count ?? 0
     }
