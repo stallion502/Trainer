@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrainerCoach/AddScheduleVC.swift"
-            timestampString = "524520574.520634"
+            timestampString = "524576867.72364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "deleteSection(section:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrainerCoach/AddScheduleVC.swift"
-            timestampString = "524520446.559764"
+            timestampString = "524576867.72364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "deleteSection(section:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -99,13 +99,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TrainerCoach/AddScheduleVC.swift"
-            timestampString = "524520620.59882"
+            filePath = "TrainerCoach/FoodVC.swift"
+            timestampString = "524576530.722868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "buttonTapped(_:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

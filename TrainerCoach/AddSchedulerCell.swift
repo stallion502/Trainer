@@ -21,6 +21,7 @@ class AddSchedulerCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        datePicker.timeZone = TimeZone(abbreviation: "GMT")
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
     

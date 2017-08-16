@@ -16,9 +16,16 @@ class FoodVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     let colors = [UIColor.red, UIColor.blue, UIColor.green, UIColor.yellow, UIColor.purple, UIColor.cyan]
     let images = [#imageLiteral(resourceName: "oatmeal_main_2"), #imageLiteral(resourceName: "HK-main")]
+    @IBOutlet weak var addButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let _  = UserDefaults.standard.object(forKey: "dates"){
+            addButton.isEnabled = false
+            addButton.tintColor = UIColor.clear
+        }
+       // let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Int:Date]
+        // UserDefaults.standard.set(dates, forKey: "dates")
         navigationController?.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self

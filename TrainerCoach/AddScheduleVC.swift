@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import AVFoundation
 
 class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandbleHeaderViewDelegate, AddScheduleGetText {
 
@@ -17,9 +18,12 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var headers = [Int: ExpandbleHeaderView]()
     var times = [Int:String]()
     var dates = [Int: Date]()
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet var annotationView: UIViewX!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        visualEffectView.isHidden = true
         cells[0] = false
         cells[1] = false
         cells[2] = false
@@ -91,8 +95,6 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return cell
         }
 
-        
-        
         headers[section] = cell
         return cell
     }
@@ -104,48 +106,83 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.reloadData()
     }
     
-    func saveToRealm() {
+    @IBAction func mainButtonAction(_ sender: UIButton) {
         
+        if dates.count == 0 {
+            for header in headers {
+                header.value.shake()
+            }
+            return
+        }
+        saveToUserDafaults()
+        addLocalNotifications()
+        animateNotification()
+    }
+    
+    
+    func saveToUserDafaults() {
+        
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: dates)
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(encodedData, forKey: "dates")
+        /*
+        let decoded  = UserDefaults.standard.object(forKey: UserDefaultsKeys.jobCategory.rawValue) as! Data
+        let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! JobCategory
+        print(decodedTeams.name)*/
+       // UserDefaults.standard.set(dates, forKey: "dates")
     }
     
     func addLocalNotifications() {
         
-            for date in dates {
-                
+        var i = 0
+        
+        for date in dates {
+            
+            var interval = Date().timeIntervalSinceNow-Date().timeIntervalSince(date.value) - 10800
+            
+            if interval < 0 {
+                interval += 86400
             }
+            if #available(iOS 10.0, *) {
             
-        if #available(iOS 10.0, *) {
-            
- /*           let content = UNMutableNotificationContent()
+                let content = UNMutableNotificationContent()
         
-        content.title = "Пора продолжать."
-        content.body = "Следующее упражнение - \(string)"
-        content.sound = UNNotificationSound.default()
-        
-        // Deliver the notification in five seconds.
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 3, repeats: false)
-        let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
-        // Schedule the notification.
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error) in
-            print(error)
-        }
-        let systemSoundID: SystemSoundID = 1016
-        
-        // to play sound
-        AudioServicesPlaySystemSound (systemSoundID)
-    }
-    else {
-        let notification = UILocalNotification()
-        notification.alertBody = "Следующее упражнение - \(string)"
-        notification.alertAction = "back to app"
-        notification.fireDate = NSDate.init(timeIntervalSinceNow: 0) as Date
-        notification.soundName = UILocalNotificationDefaultSoundName
+                content.title = "Прием пищи: \(i+1)"
+                content.body = "FitME"
+                content.sound = UNNotificationSound.default()
+                
+                // date.value.timeIntervalSinceNow
+                // Deliver the notification in five seconds.
+                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: interval, repeats: true)
+                
+                let request = UNNotificationRequest.init(identifier: "FiveSecond \(i+1)", content: content, trigger: trigger)
+                // Schedule the notification.
+                let center = UNUserNotificationCenter.current()
+                center.add(request) { (error) in
+                    print(error ?? "")
+                }
+                content.setValue("true", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+                
+                let systemSoundID: SystemSoundID = 1016
+                
+                // to play sound
+                AudioServicesPlaySystemSound(systemSoundID)
+            }
+            else {
+                let notification = UILocalNotification()
+                notification.alertBody = "Очередной прием пищи: \(date.key)\n. Приятного аппетита"
+                notification.alertAction = "back to app"
+                notification.repeatInterval = .day
+                notification.timeZone = TimeZone(abbreviation: "GMT")
+                notification.fireDate = date.value// Date.init(timeIntervalSinceNow: interval)
+                // NSDate.init(timeIntervalSinceNow: 0) as Date
+                notification.soundName = UILocalNotificationDefaultSoundName
     
-        UIApplication.shared.scheduleLocalNotification(notification)
-    }*/
+                UIApplication.shared.scheduleLocalNotification(notification)
+            }
+            i+=1
         }
-        }
+    }
 
 /*
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -185,7 +222,9 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func textLabelForCell(_ date:Date, _ indexPath: IndexPath) {
         let header = headers[indexPath.section]!
         dates[indexPath.section] = date
-        let componenets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "GMT")!
+        let componenets = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         if let hour = componenets.hour, let minute = componenets.minute {
             times[indexPath.section] = "Время: " + "\(hour):\(minute)"
             header.rLabel.text! = "Время: " + "\(hour):\(minute)"
@@ -217,6 +256,19 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         tableView.reloadData()
+    }
+    
+    func animateNotification() {
+        visualEffectView.isHidden = false
+        annotationView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        annotationView.center = view.center
+        self.view.addSubview(annotationView)
+        UIView.animate(withDuration: 0.5, animations: { 
+            self.annotationView.transform = .identity
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { 
+            self.navigationController?.popViewController(animated: true)
+        })
     }
     
     

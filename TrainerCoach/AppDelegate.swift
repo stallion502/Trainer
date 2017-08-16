@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Fallback on earlier versions
             
         }
+        let locale = NSTimeZone.init(abbreviation: "GMT")
+        NSTimeZone.default = locale! as TimeZone
+        
         IQKeyboardManager.sharedManager().enable = true
         FirebaseApp.configure()
         return true
