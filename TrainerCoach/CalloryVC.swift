@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CalloryVCDataSource:class {
+    func getDataFromCalloryVC(data: [String:String])
+}
+
 class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,15 +24,25 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     var filteredData = [String]()
     var isFiltering = false
     var searchController: UISearchController!
+    weak var delegate: CalloryVCDataSource?
+    var presented:Bool?
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = presented! ? true : false
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         tableView.delegate = self
         tableView.dataSource = self
+        searchController.searchBar.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Расписание"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,9 +78,15 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             isFiltering = true
             let array = Array(data.values)
             filteredData = array.joined().filter({$0.contains((searchController.searchBar.text)!)})
-            
             tableView.reloadData()
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchController.isActive = false
+        isFiltering = true
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,6 +116,18 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         return 85
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! CalloryCell
+        var dictionary = [String:String]()
+        dictionary["mainLabel"] = cell.mainLabel.text
+        dictionary["K"] = cell.firstUpLabel.text
+        dictionary["U"] = cell.secondUpLabel.text
+        dictionary["B"] = cell.thirdUplabel.text
+        dictionary["G"] = cell.fouthUpLabel.text
+        
+        delegate?.getDataFromCalloryVC(data: dictionary)
+        navigationController?.popViewController(animated: true)
+    }
     
     func numbersForCell(_ indexPath: IndexPath, _ filtered: Bool) -> String {
         let keys = Array(data.keys)
@@ -122,6 +154,7 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         return ""
     }
     
+    
     @IBAction func tapedTableView(_ sender: Any) {
         searchController.searchBar.endEditing(true)
     }
@@ -133,6 +166,10 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         return false
     }
 
+    deinit {
+        print("CalloryVC")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

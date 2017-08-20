@@ -21,6 +21,9 @@
 		CE0096F21F38860F00694449 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096F11F38860F00694449 /* FoodView.swift */; };
 		CE0875E61F2B8AE400B244FB /* InputUserDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */; };
 		CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E71F2BAAB100B244FB /* MainUserVC.swift */; };
+		CE0FD9521F49A5BB006C2B87 /* CalloryResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FD9511F49A5BB006C2B87 /* CalloryResultsVC.swift */; };
+		CE0FD9541F4A0A16006C2B87 /* ViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FD9531F4A0A16006C2B87 /* ViewControllerCell.swift */; };
+		CE0FD9561F4A0A52006C2B87 /* ViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0FD9551F4A0A52006C2B87 /* ViewControllerCell.xib */; };
 		CE102D371F11008E0009E3A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */; };
 		CE102D3B1F1101840009E3A4 /* ExercisesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE102D3A1F1101840009E3A4 /* ExercisesData.swift */; };
 		CE34E62E1F1F2F59000F6DB0 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6271F1F2F59000F6DB0 /* BEMAnimationManager.m */; };
@@ -50,6 +53,9 @@
 		CE8B35F91F110F8900EA6C41 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE102D381F1100FA0009E3A4 /* iAd.framework */; };
 		CE8B35FD1F1151CA00EA6C41 /* ExpandbleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */; };
 		CE8B36031F1169E600EA6C41 /* ProTrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */; };
+		CE8EB7AF1F458EA8006735CC /* CountCalloryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EB7AE1F458EA8006735CC /* CountCalloryVC.swift */; };
+		CE8EB7B11F45BC5A006735CC /* CountCalloryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EB7B01F45BC5A006735CC /* CountCalloryCell.swift */; };
+		CE8EB7B31F46F074006735CC /* AdditionalCalloryVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EB7B21F46F074006735CC /* AdditionalCalloryVCCell.swift */; };
 		CEDA55821F24A7AE000A6A29 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55781F24A7AE000A6A29 /* UIButtonX.swift */; };
 		CEDA55831F24A7AE000A6A29 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA55791F24A7AE000A6A29 /* UIImageViewX.swift */; };
 		CEDA55841F24A7AE000A6A29 /* UILabelX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA557A1F24A7AE000A6A29 /* UILabelX.swift */; };
@@ -106,6 +112,9 @@
 		CE0096F11F38860F00694449 /* FoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUserDataVC.swift; sourceTree = "<group>"; };
 		CE0875E71F2BAAB100B244FB /* MainUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserVC.swift; sourceTree = "<group>"; };
+		CE0FD9511F49A5BB006C2B87 /* CalloryResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloryResultsVC.swift; sourceTree = "<group>"; };
+		CE0FD9531F4A0A16006C2B87 /* ViewControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCell.swift; sourceTree = "<group>"; };
+		CE0FD9551F4A0A52006C2B87 /* ViewControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerCell.xib; sourceTree = "<group>"; };
 		CE102D361F11008E0009E3A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE102D381F1100FA0009E3A4 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		CE102D3A1F1101840009E3A4 /* ExercisesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesData.swift; sourceTree = "<group>"; };
@@ -147,6 +156,9 @@
 		CE8B35F71F11082A00EA6C41 /* TrainData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainData.swift; sourceTree = "<group>"; };
 		CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandbleHeaderView.swift; sourceTree = "<group>"; };
 		CE8B36021F1169E600EA6C41 /* ProTrainingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProTrainingVC.swift; sourceTree = "<group>"; };
+		CE8EB7AE1F458EA8006735CC /* CountCalloryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountCalloryVC.swift; sourceTree = "<group>"; };
+		CE8EB7B01F45BC5A006735CC /* CountCalloryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountCalloryCell.swift; sourceTree = "<group>"; };
+		CE8EB7B21F46F074006735CC /* AdditionalCalloryVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalCalloryVCCell.swift; sourceTree = "<group>"; };
 		CEDA55781F24A7AE000A6A29 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		CEDA55791F24A7AE000A6A29 /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
 		CEDA557A1F24A7AE000A6A29 /* UILabelX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelX.swift; sourceTree = "<group>"; };
@@ -229,18 +241,22 @@
 				CE74951D1F10F3A400FE3C48 /* LaunchScreen.storyboard */,
 				CE45B85C1F2B342200BADA4E /* AnnotationView.swift */,
 				CE0096E71F35D1AE00694449 /* TrainingCell.swift */,
+				CE8EB7B21F46F074006735CC /* AdditionalCalloryVCCell.swift */,
+				CE8EB7B01F45BC5A006735CC /* CountCalloryCell.swift */,
+				CE0FD9531F4A0A16006C2B87 /* ViewControllerCell.swift */,
+				CE0FD9551F4A0A52006C2B87 /* ViewControllerCell.xib */,
 				CEF4A5C91F404892001C4A51 /* AddSchedulerCell.swift */,
 				CE0096F11F38860F00694449 /* FoodView.swift */,
+				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
 				CEF1EB741F4245C900C6B326 /* ExpandbleHeader.xib */,
 				CE0096ED1F38516300694449 /* UltraVisualLayout.swift */,
-				CE8B35FC1F1151CA00EA6C41 /* ExpandbleHeaderView.swift */,
 				CEF4A5BF1F3DB333001C4A51 /* DetailCalloryCell.swift */,
 				CE0096E31F351F4D00694449 /* MainUserCell.swift */,
 				CE34E6351F20CCA3000F6DB0 /* FillView.swift */,
 				CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */,
 				CE45B8581F28999700BADA4E /* ProTrainingHeader.swift */,
-				CE4E8C271F3B3C9400773E24 /* CalloryCell.swift */,
 				CEDA55941F25053B000A6A29 /* FinishCell.swift */,
+				CE4E8C271F3B3C9400773E24 /* CalloryCell.swift */,
 				CE0096DE1F309C1100694449 /* UserCell.swift */,
 				CE34E6331F1F695F000F6DB0 /* Pulsing.swift */,
 			);
@@ -256,7 +272,9 @@
 				CEF4A5C31F3E58A4001C4A51 /* AddScheduleVC.swift */,
 				CE0096DC1F308B6200694449 /* InitialUserVC.swift */,
 				CE0096EB1F384BBF00694449 /* FoodVC.swift */,
+				CE0FD9511F49A5BB006C2B87 /* CalloryResultsVC.swift */,
 				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
+				CE8EB7AE1F458EA8006735CC /* CountCalloryVC.swift */,
 				CEF4A5BD1F3DACC6001C4A51 /* DetailCalloryVC.swift */,
 				CE4E8C251F3B344100773E24 /* CalloryVC.swift */,
 				CE45B85A1F28E8AB00BADA4E /* ListToDetailAnimation.swift */,
@@ -496,6 +514,7 @@
 				CE74951F1F10F3A400FE3C48 /* LaunchScreen.storyboard in Resources */,
 				CE102D371F11008E0009E3A4 /* GoogleService-Info.plist in Resources */,
 				CE74951C1F10F3A400FE3C48 /* Assets.xcassets in Resources */,
+				CE0FD9561F4A0A52006C2B87 /* ViewControllerCell.xib in Resources */,
 				CE74951A1F10F3A400FE3C48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,6 +678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8EB7B11F45BC5A006735CC /* CountCalloryCell.swift in Sources */,
 				CE0096EE1F38516300694449 /* UltraVisualLayout.swift in Sources */,
 				CE0096E81F35D1AE00694449 /* TrainingCell.swift in Sources */,
 				CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */,
@@ -676,6 +696,7 @@
 				CEDA55841F24A7AE000A6A29 /* UILabelX.swift in Sources */,
 				CEDA55951F25053B000A6A29 /* FinishCell.swift in Sources */,
 				CEDA55871F24A7AE000A6A29 /* UIViewAnchorPoint.swift in Sources */,
+				CE8EB7AF1F458EA8006735CC /* CountCalloryVC.swift in Sources */,
 				CE34E6311F1F2F59000F6DB0 /* BEMPathManager.m in Sources */,
 				CE45B8591F28999700BADA4E /* ProTrainingHeader.swift in Sources */,
 				CE0096DB1F2E0CC500694449 /* UserAttributes.swift in Sources */,
@@ -687,7 +708,9 @@
 				CE34E62F1F1F2F59000F6DB0 /* BEMCheckBox.m in Sources */,
 				CE0096EC1F384BBF00694449 /* FoodVC.swift in Sources */,
 				CEDA55851F24A7AE000A6A29 /* UISliderX.swift in Sources */,
+				CE0FD9541F4A0A16006C2B87 /* ViewControllerCell.swift in Sources */,
 				CEF4A5C21F3DCFC0001C4A51 /* CalloryData.swift in Sources */,
+				CE0FD9521F49A5BB006C2B87 /* CalloryResultsVC.swift in Sources */,
 				CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */,
 				CE45B85F1F2B4CE900BADA4E /* Conclusion.swift in Sources */,
 				CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */,
@@ -697,6 +720,7 @@
 				CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */,
 				CEF4A5CA1F404892001C4A51 /* AddSchedulerCell.swift in Sources */,
 				CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */,
+				CE8EB7B31F46F074006735CC /* AdditionalCalloryVCCell.swift in Sources */,
 				CE34E6301F1F2F59000F6DB0 /* BEMCheckBoxGroup.m in Sources */,
 				CEF4A5C01F3DB333001C4A51 /* DetailCalloryCell.swift in Sources */,
 				CE0096E61F35CC2F00694449 /* TrainingVC.swift in Sources */,

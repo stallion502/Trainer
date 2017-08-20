@@ -33,12 +33,6 @@ class ProTrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let backButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "backArrow"), style: .plain, target: self, action: #selector(back))
-        backButtonItem.tintColor = UIColor.white
-        self.navigationItem.leftBarButtonItem = backButtonItem
-        self.navigationItem.leftBarButtonItem?.setBackgroundVerticalPositionAdjustment(5, for: .default)
-        self.navigationItem.leftBarButtonItem?.imageInsets = UIEdgeInsetsMake(5, 5, 5, 20)
-        
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
         let font = UIFont(name: "Avenir-Light", size: 23.0)
         let attributeFontSaySomething : [String : Any] = [NSFontAttributeName : font!, NSForegroundColorAttributeName: UIColor.white]

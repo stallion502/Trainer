@@ -9,14 +9,14 @@
 import UIKit
 import SwiftyJSON
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandbleHeaderViewDelegate{
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ViewControllerCellDelegate{
 
     @IBOutlet weak var tableVIew: UITableView!
     var trainData: [TrainData]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableVIew.separatorStyle = .none
         self.navigationController?.delegate = self
         
         tableVIew.delegate = self
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 100
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -100,9 +100,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = ExpandbleHeaderView()
+        let cell = Bundle.main.loadNibNamed("ViewControllerCell", owner: self, options: nil)?.first as! ViewControllerCell
+        
         let title = trainData?[section].title
-        cell.customInit(section: section, title: title!, delegate: self)
+        cell.mainLabel.text = title
+        cell.titleLabel.text = "PRIVET"
+        cell.section = section
+        cell.delegate = self
         return cell
     }
     
@@ -129,7 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return nil
     }
 
-    func toogleSection(header: ExpandbleHeaderView, section: Int) {
+    func toogleSection(header: ViewControllerCell, section: Int) {
         trainData?[section].expanded = !(trainData?[section].expanded)!
         var numberOfrows = 2
         if ((trainData?[section].third_week?.count)! > 0){
