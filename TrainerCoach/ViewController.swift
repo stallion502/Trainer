@@ -34,6 +34,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.title = ""
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.title = "Профессионалы"
+    }
+    
+    
     func deleteSection(section: Int) {
         //
     }
@@ -143,9 +153,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableVIew.beginUpdates()
         for i in 0..<numberOfrows {
             tableVIew.rectForRow
-            tableVIew.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
+            tableVIew.reloadRows(at: [IndexPath(row: i, section: section)], with: .none)
             tableVIew.endUpdates()
         }
+        tableVIew.reloadData()
     }
 
     

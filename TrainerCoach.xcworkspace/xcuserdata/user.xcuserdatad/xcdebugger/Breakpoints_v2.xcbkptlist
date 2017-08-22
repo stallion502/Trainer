@@ -105,7 +105,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
             endingLineNumber = "145"
-            landmarkName = "gotAdditionalText(text:forRow:)"
+            landmarkName = "gotText(text:forRow:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -131,13 +131,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TrainerCoach/ViewController.swift"
-            timestampString = "524950327.885969"
+            filePath = "TrainerCoach/CalloryVC.swift"
+            timestampString = "525103058.458876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

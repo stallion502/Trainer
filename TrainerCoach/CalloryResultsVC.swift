@@ -13,12 +13,20 @@ class CalloryResultsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     var titles = ["Завтрак", "Обед", "Ужин"]
     var headers: [[[String:String]]]?
+    var weight: String?
+    var sex: String?
+    
+    var calloryResult = 0
+    var fatResult = 0
+    var uglevodsResult = 0
+    var proteinResult = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectInfo()
         tableView.dataSource = self
         tableView.delegate = self
-
+        tableView.allowsSelection = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +49,10 @@ class CalloryResultsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        if let row = headers?[indexPath.section] {
+            
+        }
         return cell
     }
     
@@ -52,6 +64,36 @@ class CalloryResultsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return titles[section]
     }
 
+   /* func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        <#code#>
+    }*/
+    
+    func collectInfo() {
+        let myweight = Int(weight!)
+        calloryResult = 35 * myweight!
+        if sex == "man" {
+            proteinResult = myweight!*3
+            uglevodsResult = myweight!*5
+        }
+        else {
+            proteinResult = myweight!*2
+            uglevodsResult = myweight!*4
+        }
+        
+        fatResult = myweight!
+    }
+ /*
+    func countParametrsForItem(_ item:[[String:String]]) -> [Int] {
+        
+        var array = [Int]()
+        for dictionary in item {
+            array[0]+=Int(dictionary["K"]!)!
+            array[1]+=Int(dictionary["U"]!)!
+            array[2]+=Int(dictionary["B"]!)!
+            array[3]+=Int(dictionary["G"]!)!
+        }
+    }
+  */  
     /*
     // MARK: - Navigation
 

@@ -20,11 +20,15 @@ class CountCalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var redButton: UIViewX!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    var weight: String?
+    var sex: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mycells = [cellsForBreakfast, cellsForLunch, cellsForDinner]
         segmentControl.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for: .valueChanged)
         redButton.layer.add(addBlink(), forKey: "blinking")
+        navigationController?.setNavigationBarHidden(false, animated: false)
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
@@ -189,6 +193,8 @@ class CountCalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let toVC = segue.destination as! CalloryResultsVC
         toVC.headers = mycells
+        toVC.weight = weight
+        toVC.sex = sex
     }
     
 

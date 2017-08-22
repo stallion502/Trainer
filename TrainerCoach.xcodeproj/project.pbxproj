@@ -21,6 +21,8 @@
 		CE0096F21F38860F00694449 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0096F11F38860F00694449 /* FoodView.swift */; };
 		CE0875E61F2B8AE400B244FB /* InputUserDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */; };
 		CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0875E71F2BAAB100B244FB /* MainUserVC.swift */; };
+		CE08EC511F4AC89600E067B2 /* CalloryResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08EC501F4AC89600E067B2 /* CalloryResultCell.swift */; };
+		CE08EC531F4B3ADA00E067B2 /* InitialResultCalloryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08EC521F4B3ADA00E067B2 /* InitialResultCalloryVC.swift */; };
 		CE0FD9521F49A5BB006C2B87 /* CalloryResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FD9511F49A5BB006C2B87 /* CalloryResultsVC.swift */; };
 		CE0FD9541F4A0A16006C2B87 /* ViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FD9531F4A0A16006C2B87 /* ViewControllerCell.swift */; };
 		CE0FD9561F4A0A52006C2B87 /* ViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0FD9551F4A0A52006C2B87 /* ViewControllerCell.xib */; };
@@ -112,6 +114,8 @@
 		CE0096F11F38860F00694449 /* FoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		CE0875E51F2B8AE400B244FB /* InputUserDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUserDataVC.swift; sourceTree = "<group>"; };
 		CE0875E71F2BAAB100B244FB /* MainUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserVC.swift; sourceTree = "<group>"; };
+		CE08EC501F4AC89600E067B2 /* CalloryResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloryResultCell.swift; sourceTree = "<group>"; };
+		CE08EC521F4B3ADA00E067B2 /* InitialResultCalloryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialResultCalloryVC.swift; sourceTree = "<group>"; };
 		CE0FD9511F49A5BB006C2B87 /* CalloryResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloryResultsVC.swift; sourceTree = "<group>"; };
 		CE0FD9531F4A0A16006C2B87 /* ViewControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCell.swift; sourceTree = "<group>"; };
 		CE0FD9551F4A0A52006C2B87 /* ViewControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerCell.xib; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				CE0096E71F35D1AE00694449 /* TrainingCell.swift */,
 				CE8EB7B21F46F074006735CC /* AdditionalCalloryVCCell.swift */,
 				CE8EB7B01F45BC5A006735CC /* CountCalloryCell.swift */,
+				CE08EC501F4AC89600E067B2 /* CalloryResultCell.swift */,
 				CE0FD9531F4A0A16006C2B87 /* ViewControllerCell.swift */,
 				CE0FD9551F4A0A52006C2B87 /* ViewControllerCell.xib */,
 				CEF4A5C91F404892001C4A51 /* AddSchedulerCell.swift */,
@@ -272,6 +277,7 @@
 				CEF4A5C31F3E58A4001C4A51 /* AddScheduleVC.swift */,
 				CE0096DC1F308B6200694449 /* InitialUserVC.swift */,
 				CE0096EB1F384BBF00694449 /* FoodVC.swift */,
+				CE08EC521F4B3ADA00E067B2 /* InitialResultCalloryVC.swift */,
 				CE0FD9511F49A5BB006C2B87 /* CalloryResultsVC.swift */,
 				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
 				CE8EB7AE1F458EA8006735CC /* CountCalloryVC.swift */,
@@ -678,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE08EC511F4AC89600E067B2 /* CalloryResultCell.swift in Sources */,
 				CE8EB7B11F45BC5A006735CC /* CountCalloryCell.swift in Sources */,
 				CE0096EE1F38516300694449 /* UltraVisualLayout.swift in Sources */,
 				CE0096E81F35D1AE00694449 /* TrainingCell.swift in Sources */,
@@ -716,6 +723,7 @@
 				CE7495151F10F3A400FE3C48 /* AppDelegate.swift in Sources */,
 				CE0096F21F38860F00694449 /* FoodView.swift in Sources */,
 				CE8B35F81F11082A00EA6C41 /* TrainData.swift in Sources */,
+				CE08EC531F4B3ADA00E067B2 /* InitialResultCalloryVC.swift in Sources */,
 				CEDA55891F24A7AE000A6A29 /* UIViewX.swift in Sources */,
 				CE0875E81F2BAAB100B244FB /* MainUserVC.swift in Sources */,
 				CEF4A5CA1F404892001C4A51 /* AddSchedulerCell.swift in Sources */,

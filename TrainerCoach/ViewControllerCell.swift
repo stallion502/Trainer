@@ -19,7 +19,7 @@ class ViewControllerCell: UITableViewCell {
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    var section: Int?
+    var section: Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +32,11 @@ class ViewControllerCell: UITableViewCell {
     
     func selectHeaderAction(sender: UITapGestureRecognizer){
         let cell = sender.view as! ViewControllerCell
-        delegate?.toogleSection(header: self, section: cell.section!)
+        delegate?.toogleSection(header: self, section: cell.section)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // do some UI Stuff with header
+    }
 }

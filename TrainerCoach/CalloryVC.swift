@@ -25,12 +25,12 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     var isFiltering = false
     var searchController: UISearchController!
     weak var delegate: CalloryVCDataSource?
-    var presented:Bool?
+    var presented:Bool = false
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.allowsSelection = presented! ? true : false
+        tableView.allowsSelection = presented ? true : false
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
@@ -42,7 +42,7 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Расписание"
+        self.title = "Пищевая ценность"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -124,7 +124,14 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         dictionary["U"] = cell.secondUpLabel.text
         dictionary["B"] = cell.thirdUplabel.text
         dictionary["G"] = cell.fouthUpLabel.text
-        
+        var key = ""
+        if isFiltering {
+            key = findKeyForValue(value: filteredData[indexPath.row], dictionary: data)!
+        }
+        else {
+            key = Array(data.keys)[indexPath.section]
+        }
+        dictionary["key"] = key
         delegate?.getDataFromCalloryVC(data: dictionary)
         navigationController?.popViewController(animated: true)
     }
@@ -169,6 +176,20 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     deinit {
         print("CalloryVC")
     }
+    
+    func findKeyForValue(value: String, dictionary: [String: [String]]) ->String?
+    {
+        for (key, array) in dictionary
+        {
+            if (array.contains(value))
+            {
+                return key
+            }
+        }
+        
+        return nil
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -92,6 +92,7 @@ class ExercisesData {
                             
                             if j == 284 {
                                 let header = headers[value]
+                                array.append("Макароны 0 13 1,5 75 371")
                                 dictionary[header] = array
                             }
                             j+=1
