@@ -158,6 +158,7 @@ class CountCalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func redButtonPressed(_ sender: UITapGestureRecognizer) {
         mycells?[currentSegment].append([String:String]())
         tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath.init(row: (mycells?[currentSegment].count)!-1, section: 0), at: .bottom, animated: true)
     }
 
     @IBAction func mainButtonPressed(_ sender: Any) {
@@ -181,7 +182,20 @@ class CountCalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func segmentedControlValueChanged(segment: UISegmentedControl) {
+        var i = 0
+    /*    for item in (mycells?[currentSegment])! {
+            
+            let cell = tableView.cellForRow(at: IndexPath.init(row: i, section: 0)) as!
+            if let _ = item["text"]{
+                return
+            }
+            else {
+                item["text"] = text
+            }
+            i+=1
+        }*/
         currentSegment = segment.selectedSegmentIndex
+
         tableView.reloadData()
     }
     

@@ -49,28 +49,36 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         progressView.angle = 0.5
         progressView.glowMode = .forward
         
-        let realm = try! Realm()
-        let conclusions = realm.objects(Conclusion.self).filter("key = '\(titleLabelText!)'")
-        if conclusions.count != 0 {
-            for conclusion in conclusions {
+        let realm = try? Realm()
+        var conclusions = realm?.objects(Conclusion.self)
+        if (conclusions?.count)!>0 {
+             conclusions = conclusions?.filter("key = '\(titleLabelText!)'")
+            if conclusions?.count != 0 {
+                for conclusion in conclusions! {
                 
-                if conclusion.week == self.week {
-                    count = conclusions.count
-                }
-                else{
-                    saveToDefaults()
+                    if conclusion.week == self.week {
+                        count = (conclusions?.count)!
+                    }
+                    else{
+                        saveToDefaults()
                     count += 1
+                    }
                 }
             }
+            else {
+                saveToDefaults()
+            }
+            if type == "user" {
+                degree = 360 / 25
+            }
+            else {
+                degree = 120
+            }
         }
-        else {
+        else{
+            count = 1
+            degree = type == "pro" ? 120 : 360 / 25
             saveToDefaults()
-        }
-        if type == "user" {
-            degree = 360 / 25
-        }
-        else {
-           degree = 120
         }
         progressView.animate(fromAngle: 0.1, toAngle: Double(degree * Double(count)), duration: 2.1) { (bool) in
             self.progressView.layer.add(self.bloatWithCount(count: 1), forKey: "scale_phone")
@@ -181,7 +189,7 @@ class FinishVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
             title = "Daily Progress"
         }
         
-        if value < Double(degree) {
+        if value < Double(100/3*count) /*hardcodeed*/{
             if type == "user" {value += 0.1}
             else {value += 1}
             self.mainLabel.text = "\(title)\n\(value)%"

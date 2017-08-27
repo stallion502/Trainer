@@ -35,6 +35,9 @@
 		CE34E6341F1F695F000F6DB0 /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6331F1F695F000F6DB0 /* Pulsing.swift */; };
 		CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6351F20CCA3000F6DB0 /* FillView.swift */; };
 		CE34E6381F22311C000F6DB0 /* FinishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34E6371F22311C000F6DB0 /* FinishVC.swift */; };
+		CE367A8D1F4DA28E008F5BE2 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE367A8C1F4DA28E008F5BE2 /* FooterView.swift */; };
+		CE367A8F1F518BB3008F5BE2 /* UserSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE367A8E1F518BB3008F5BE2 /* UserSettingsVC.swift */; };
+		CE367A911F52DDD1008F5BE2 /* UserSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE367A901F52DDD1008F5BE2 /* UserSettingsCell.swift */; };
 		CE3693CF1F139EBB00E76B2A /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3693CE1F139EBB00E76B2A /* iCarousel.m */; };
 		CE3693D11F13A51400E76B2A /* DynamicTrainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D01F13A51400E76B2A /* DynamicTrainVC.swift */; };
 		CE3693D51F13BE6A00E76B2A /* DynamicTrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3693D41F13BE6A00E76B2A /* DynamicTrainCell.swift */; };
@@ -133,6 +136,9 @@
 		CE34E6331F1F695F000F6DB0 /* Pulsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
 		CE34E6351F20CCA3000F6DB0 /* FillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillView.swift; sourceTree = "<group>"; };
 		CE34E6371F22311C000F6DB0 /* FinishVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishVC.swift; sourceTree = "<group>"; };
+		CE367A8C1F4DA28E008F5BE2 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		CE367A8E1F518BB3008F5BE2 /* UserSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsVC.swift; sourceTree = "<group>"; };
+		CE367A901F52DDD1008F5BE2 /* UserSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsCell.swift; sourceTree = "<group>"; };
 		CE3693CC1F139EB900E76B2A /* TrainerCoach-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrainerCoach-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE3693CD1F139EBB00E76B2A /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		CE3693CE1F139EBB00E76B2A /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -248,7 +254,9 @@
 				CE8EB7B21F46F074006735CC /* AdditionalCalloryVCCell.swift */,
 				CE8EB7B01F45BC5A006735CC /* CountCalloryCell.swift */,
 				CE08EC501F4AC89600E067B2 /* CalloryResultCell.swift */,
+				CE367A8C1F4DA28E008F5BE2 /* FooterView.swift */,
 				CE0FD9531F4A0A16006C2B87 /* ViewControllerCell.swift */,
+				CE367A901F52DDD1008F5BE2 /* UserSettingsCell.swift */,
 				CE0FD9551F4A0A52006C2B87 /* ViewControllerCell.xib */,
 				CEF4A5C91F404892001C4A51 /* AddSchedulerCell.swift */,
 				CE0096F11F38860F00694449 /* FoodView.swift */,
@@ -280,6 +288,7 @@
 				CE08EC521F4B3ADA00E067B2 /* InitialResultCalloryVC.swift */,
 				CE0FD9511F49A5BB006C2B87 /* CalloryResultsVC.swift */,
 				CE34E6371F22311C000F6DB0 /* FinishVC.swift */,
+				CE367A8E1F518BB3008F5BE2 /* UserSettingsVC.swift */,
 				CE8EB7AE1F458EA8006735CC /* CountCalloryVC.swift */,
 				CEF4A5BD1F3DACC6001C4A51 /* DetailCalloryVC.swift */,
 				CE4E8C251F3B344100773E24 /* CalloryVC.swift */,
@@ -688,7 +697,9 @@
 				CE8EB7B11F45BC5A006735CC /* CountCalloryCell.swift in Sources */,
 				CE0096EE1F38516300694449 /* UltraVisualLayout.swift in Sources */,
 				CE0096E81F35D1AE00694449 /* TrainingCell.swift in Sources */,
+				CE367A8F1F518BB3008F5BE2 /* UserSettingsVC.swift in Sources */,
 				CEDA558B1F24A7AE000A6A29 /* UIVisualEffectViewX.swift in Sources */,
+				CE367A911F52DDD1008F5BE2 /* UserSettingsCell.swift in Sources */,
 				CEDA55881F24A7AE000A6A29 /* UIViewControllerX.swift in Sources */,
 				CE0096E41F351F4D00694449 /* MainUserCell.swift in Sources */,
 				CEDA55821F24A7AE000A6A29 /* UIButtonX.swift in Sources */,
@@ -705,6 +716,7 @@
 				CEDA55871F24A7AE000A6A29 /* UIViewAnchorPoint.swift in Sources */,
 				CE8EB7AF1F458EA8006735CC /* CountCalloryVC.swift in Sources */,
 				CE34E6311F1F2F59000F6DB0 /* BEMPathManager.m in Sources */,
+				CE367A8D1F4DA28E008F5BE2 /* FooterView.swift in Sources */,
 				CE45B8591F28999700BADA4E /* ProTrainingHeader.swift in Sources */,
 				CE0096DB1F2E0CC500694449 /* UserAttributes.swift in Sources */,
 				CE34E6361F20CCA3000F6DB0 /* FillView.swift in Sources */,

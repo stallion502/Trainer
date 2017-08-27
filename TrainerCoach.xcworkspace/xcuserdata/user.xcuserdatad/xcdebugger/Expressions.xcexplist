@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CalloryResultsVC.collectInfo() -&gt; ():CalloryResultsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CalloryResultsVC.pickedColorForItem([Double], [Double]) -&gt; [UIColor]:CalloryResultsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CalloryResultsVC.countParametrsForItem([[String : String]]) -&gt; [Double]:CalloryResultsVC.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.title = ""
+      //  self.title = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {

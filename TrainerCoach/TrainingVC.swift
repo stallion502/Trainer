@@ -25,7 +25,7 @@ class TrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         self.title = "Тренировка \(indexVC ?? 0)"
-        self.tabBarController?.tabBar.isHidden = true
+     //   self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +90,7 @@ class TrainingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         toVC.data = trainingData
         toVC.type = self.type
         toVC.week = indexVC! - 1
+        toVC.titleLabelText = self.titleLabelText
         navigationController?.pushViewController(toVC, animated: true)
     }
 

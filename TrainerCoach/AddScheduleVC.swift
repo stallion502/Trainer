@@ -136,6 +136,8 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         var i = 0
         
+        UIApplication.shared.cancelAllLocalNotifications()
+        
         for date in dates {
             
             var interval = Date().timeIntervalSinceNow-Date().timeIntervalSince(date.value) - 10800
@@ -153,8 +155,11 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 
                 // date.value.timeIntervalSinceNow
                 // Deliver the notification in five seconds.
-                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: interval, repeats: true)
-                
+               // let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: interval, repeats: true)
+                var components = DateComponents()
+                components.hour = date.value.hour
+                components.minute = date.value.minute
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
                 let request = UNNotificationRequest.init(identifier: "FiveSecond \(i+1)", content: content, trigger: trigger)
                 // Schedule the notification.
                 let center = UNUserNotificationCenter.current()

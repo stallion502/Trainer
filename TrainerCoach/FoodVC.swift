@@ -20,10 +20,7 @@ class FoodVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let _  = UserDefaults.standard.object(forKey: "dates"){
-            addButton.isEnabled = false
-            addButton.tintColor = UIColor.clear
-        }
+        
        // let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Int:Date]
         // UserDefaults.standard.set(dates, forKey: "dates")
         navigationController?.delegate = self
@@ -32,6 +29,14 @@ class FoodVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     //    let layout = collectionViewLayout as UICollectionViewFlowLayout
     //    layout.itemSize = CGSize(width: collectionView.bounds.width, height: 100)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let _  = UserDefaults.standard.object(forKey: "dates"){
+            addButton.isEnabled = false
+            addButton.tintColor = UIColor.clear
+        }
     }
 
     override func didReceiveMemoryWarning() {

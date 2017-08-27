@@ -46,6 +46,7 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     var titleLabelText: String?
     var type: String?
     var groups: String?
+    @IBOutlet var popUp: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,8 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(advanceTimer), userInfo: nil, repeats: true)
         
         dictionaryClass = self.parseData()
-
+        popUp.layer.cornerRadius = 5
+        popUp.layer.masksToBounds = true
         let array = dictionaryClass?.object(forKey: "repeats") as! [Int]
         pageControl.numberOfPages = array[0]
         
@@ -456,6 +458,35 @@ class DynamicTrainVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         navigationController?.pushViewController(finishVC, animated: true)
     }
     
+    @IBAction func stopButtonAction(_ sender: UIButton) {
+        animateIn()
+    }
+    
+    func animateIn() {
+        popUp.alpha = 0
+        popUp.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        popUp.center = view.center
+        view.addSubview(popUp)
+        
+        UIView.animate(withDuration: 0.4) {
+            self.popUp.alpha = 1
+            self.popUp.transform = .identity
+        }
+    }
+    
+    @IBAction func goOn(_ sender: UIButton) {
+        self.timer?.invalidate()
+        self.timer = nil
+        self.restTimer?.invalidate()
+        self.restTimer = nil
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func goBack(_ sender: UIButton) {
+        popUp.removeFromSuperview()
+    }
+
     deinit {
         print("DynamictrainVC")
     }
