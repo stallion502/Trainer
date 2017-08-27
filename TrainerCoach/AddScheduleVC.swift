@@ -175,7 +175,7 @@ class AddScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             else {
                 let notification = UILocalNotification()
-                notification.alertBody = "Очередной прием пищи: \(date.key)\n. Приятного аппетита"
+                notification.alertBody = "Очередной прием пищи: \(date.key + 1)\n. Приятного аппетита"
                 notification.alertAction = "back to app"
                 notification.repeatInterval = .day
                 notification.timeZone = TimeZone(abbreviation: "GMT")

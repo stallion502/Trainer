@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrainerCoach/UserSettingsVC.swift"
-            timestampString = "525535350.59451"
+            timestampString = "525561991.566804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "countCalloryAction(_:)"
             landmarkType = "7">
          </BreakpointContent>

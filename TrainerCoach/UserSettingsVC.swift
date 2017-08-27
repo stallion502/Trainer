@@ -9,27 +9,36 @@
 import UIKit
 import RealmSwift
 
-class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate {
+class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     var trainData: [TrainData]?
     var filteredData = [Results<Conclusion>]()
     @IBOutlet weak var stackView: UIStackView!
-    
+    @IBOutlet weak var imageView: UIImageView!
+    var picker = UIImagePickerController()
+    @IBOutlet weak var mainView: UIViewX!
+    @IBOutlet weak var photoButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let picker = UIImagePickerController()
         scrollView.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-        ExercisesData.getProTraining { (proTrainig) in
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 50
+        picker.delegate = self
+        photoButton.addTarget(self, action: #selector(presentImagePicker), for: .touchUpInside)
+        mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentImagePicker)))
+
+     /*   ExercisesData.getProTraining { (proTrainig) in
             self.trainData = proTrainig
             self.parseData()
            DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-        }
+        }*/
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +51,13 @@ class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDe
                 self.collectionView.reloadData()
             }
         }
+        imageView.isHidden = true
         
+        if let decodedImage = UserDefaults.standard.object(forKey: "image") as? Data {
+            imageView.isHidden = false
+            let image = NSKeyedUnarchiver.unarchiveObject(with: decodedImage) as! UIImage
+            imageView.image = image
+        }
         if let decoded  = UserDefaults.standard.object(forKey: "dates") as? Data {
             let dates = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Int: Date]
             var i = 0
@@ -152,14 +167,50 @@ class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDe
             tabBarController?.selectedIndex = 2
         }
     }
-    /*
-    // MARK: - Navigation
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+       let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        photoButton.isHidden = true
+        mainView.isHidden = true
+        imageView.isHidden = false
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentImagePicker)))
+        imageView.image = chosenImage
+        let encodedImage = NSKeyedArchiver.archivedData(withRootObject: chosenImage)
+        UserDefaults.standard.set(encodedImage, forKey: "image")
+        dismiss(animated: true, completion: nil)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func presentImagePicker() {
+        
+        let alertController = UIAlertController(title: "Выберите фото", message: "", preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Камера", style: .default) {
+            (result : UIAlertAction) -> Void in
+            self.picker.allowsEditing = false
+            self.picker.sourceType = .camera
+            self.picker.cameraCaptureMode = .photo
+            self.present(self.picker, animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Назад", style: .cancel) { action in
+            //self.dismiss(animated: true, completion: nil)
+        }
+        let libraryAction = UIAlertAction(title: "Библиотека", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            self.picker.allowsEditing = false
+            self.picker.sourceType = .photoLibrary
+            self.present(self.picker, animated: true, completion: nil)
+        }
+        
+        alertController.addAction(cameraAction)
+        alertController.addAction(libraryAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 
 }
