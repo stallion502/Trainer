@@ -42,7 +42,6 @@ class CalloryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Пищевая ценность"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

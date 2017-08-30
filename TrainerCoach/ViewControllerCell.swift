@@ -25,7 +25,7 @@ class ViewControllerCell: UITableViewCell {
         super.awakeFromNib()
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectHeaderAction(sender:))))
         myImageView.layer.borderWidth = 1
-        myImageView.layer.borderColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1).cgColor
+        //myImageView.layer.borderColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1).cgColor
         myImageView.layer.cornerRadius = myImageView.frame.height/2
         
     }

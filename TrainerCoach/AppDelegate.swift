@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundTask: UIBackgroundTaskIdentifier?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         if UserDefaults.standard.object(forKey: "Food") == nil {
             ExercisesData.writeToDataBase()
         }
@@ -36,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         let locale = NSTimeZone.init(abbreviation: "GMT")
         NSTimeZone.default = locale! as TimeZone
-        
+        (window?.rootViewController as! UITabBarController ).tabBar.tintColor = #colorLiteral(red: 1, green: 0.1333, blue: 0.1333, alpha: 1)
         IQKeyboardManager.sharedManager().enable = true
         FirebaseApp.configure()
         return true

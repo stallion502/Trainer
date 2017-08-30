@@ -8,11 +8,13 @@
 
 import UIKit
 import SwiftyJSON
+import FirebaseStorageUI
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ViewControllerCellDelegate{
 
     @IBOutlet weak var tableVIew: UITableView!
     var trainData: [TrainData]?
+    static var storage: Storage = Storage.storage(url: "gs://personalcoach-edc0d.appspot.com")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.title = "Профессионалы"
+       // self.title = "Профессионалы"
     }
     
     
@@ -102,7 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 110
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -111,11 +113,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = Bundle.main.loadNibNamed("ViewControllerCell", owner: self, options: nil)?.first as! ViewControllerCell
-        
+        let reference = ViewController.storage.reference(withPath: "\(section).jpg")
         let title = trainData?[section].title
         cell.mainLabel.text = title
-        cell.titleLabel.text = "PRIVET"
+        cell.titleLabel.text = trainData?[section].subtitle
         cell.section = section
+        cell.myImageView.sd_setImage(with: reference)
         cell.delegate = self
         return cell
     }

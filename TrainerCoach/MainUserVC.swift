@@ -46,8 +46,9 @@ class MainUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.hidesBottomBarWhenPushed = false
         tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: false)
         self.title = "Тренировки"

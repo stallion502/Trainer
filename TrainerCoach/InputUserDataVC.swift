@@ -18,6 +18,7 @@ class InputUserDataVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var blurEffect: UIVisualEffectView!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet var popUp: UIView!
+    var sex = "man"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,9 @@ class InputUserDataVC: UIViewController, UITextFieldDelegate {
         if shouldGoNextVC() {
             collectText()
             animateIn()
+            UserDefaults.standard.set(texts[0], forKey: "userWeight")
+            UserDefaults.standard.set(texts[1], forKey: "userHeight")
+            UserDefaults.standart.set(sex, forKey: "sex")
         }
         
 

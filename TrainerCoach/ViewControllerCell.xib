@@ -33,8 +33,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6q-3k-6Iv">
-                    <rect key="frame" x="99" y="50" width="39" height="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="P6q-3k-6Iv">
+                    <rect key="frame" x="99" y="45" width="261" height="22"/>
                     <fontDescription key="fontDescription" name="Avenir-Oblique" family="Avenir" pointSize="16"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -56,7 +56,8 @@
                 <constraint firstAttribute="trailing" secondItem="DKp-ac-KST" secondAttribute="trailing" id="Ofd-Be-UVo"/>
                 <constraint firstItem="fIi-Hn-Ued" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="aAS-E4-Wg5"/>
                 <constraint firstItem="OVj-TF-5Z1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="d4C-p0-k3k"/>
-                <constraint firstItem="P6q-3k-6Iv" firstAttribute="top" secondItem="fIi-Hn-Ued" secondAttribute="bottom" constant="10" id="ghh-cB-x5a"/>
+                <constraint firstItem="P6q-3k-6Iv" firstAttribute="top" secondItem="fIi-Hn-Ued" secondAttribute="bottom" constant="5" id="ghh-cB-x5a"/>
+                <constraint firstAttribute="trailing" secondItem="P6q-3k-6Iv" secondAttribute="trailing" constant="15" id="vKI-rO-kyr"/>
                 <constraint firstAttribute="bottom" secondItem="DKp-ac-KST" secondAttribute="bottom" id="yt4-XJ-E18"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

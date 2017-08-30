@@ -16,13 +16,15 @@ struct TrainData {
     var tips: [JSON]
     var title: String
     var expanded: Bool
+    var subtitle: String
     
-    init(first_week:JSON, second_week:JSON, third_week:JSON? = nil, tips: [JSON], title: String, expanded: Bool) {
+    init(first_week:JSON, second_week:JSON, third_week:JSON? = nil, tips: [JSON], title: String, expanded: Bool, subtitle: String) {
         self.first_week = first_week
         self.second_week = second_week
         self.third_week = third_week
         self.tips = tips
         self.title = title
         self.expanded = expanded
+        self.subtitle = subtitle
     }
 }

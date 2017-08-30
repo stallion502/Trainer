@@ -37,7 +37,7 @@ class ExercisesData {
             let json = JSON(snapshot.value as AnyObject).arrayValue
             var localArray:Array = [TrainData]()
             for jsonObject in json {
-                localArray.append(TrainData(first_week: jsonObject["first_week"], second_week: jsonObject["second_week"], third_week: jsonObject["third_week"], tips: jsonObject.arrayValue, title: jsonObject["title"].stringValue, expanded: false))
+                localArray.append(TrainData(first_week: jsonObject["first_week"], second_week: jsonObject["second_week"], third_week: jsonObject["third_week"], tips: jsonObject.arrayValue, title: jsonObject["title"].stringValue, expanded: false, subtitle: jsonObject["subtitle"].stringValue))
             }
             completion(localArray)
         })

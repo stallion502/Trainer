@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,17 +20,20 @@ class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDe
     var picker = UIImagePickerController()
     @IBOutlet weak var mainView: UIViewX!
     @IBOutlet weak var photoButton: UIButton!
+    @IBOutlet weak var textfield: UITextField!
+    @IBOutlet weak var transparantVIew: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       // scrollView.contentSize = CGSize(width: view.frame.width, height: 930) // (view.frame.width, 930)
         scrollView.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 50
         picker.delegate = self
-        photoButton.addTarget(self, action: #selector(presentImagePicker), for: .touchUpInside)
-        mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentImagePicker)))
+        textfield.delegate = self
+        transparantVIew.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentImagePicker)))
 
      /*   ExercisesData.getProTraining { (proTrainig) in
             self.trainData = proTrainig
@@ -53,11 +56,19 @@ class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDe
         }
         imageView.isHidden = true
         
+        if let name = UserDefaults.standard.object(forKey: "name") as? String {
+            textfield.text = name
+            textfield.borderStyle = .none
+        }
+        
         if let decodedImage = UserDefaults.standard.object(forKey: "image") as? Data {
             imageView.isHidden = false
+            mainView.isHidden = true
+            photoButton.isHidden = true
             let image = NSKeyedUnarchiver.unarchiveObject(with: decodedImage) as! UIImage
             imageView.image = image
         }
+        
         if let decoded  = UserDefaults.standard.object(forKey: "dates") as? Data {
             let dates = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Int: Date]
             var i = 0
@@ -83,6 +94,11 @@ class UserSettingsVC: UIViewController, UIScrollViewDelegate, UICollectionViewDe
                 (view.subviews.first as! UILabel).text = "-"
             })
         }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UserDefaults.standard.set(textfield.text, forKey: "name")
+        self.textfield.borderStyle = .none
     }
     
     override func viewWillDisappear(_ animated: Bool) {
